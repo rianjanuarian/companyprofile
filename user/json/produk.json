@@ -1,0 +1,72 @@
+{
+    "status": "success",
+    "items": [{
+            "id": 1,
+            "title": "vga",
+            "price": 135,
+            "image": "./images/product-1.jpg"
+        },
+        {
+            "id": 2,
+            "title": "vga",
+            "price": 950,
+            "image": "./images/product-2.jpg"
+        },
+        {
+            "id": 3,
+            "title": "vga",
+            "price": 750,
+            "image": "./images/product-3.jpg"
+        },
+        {
+            "id": 4,
+            "title": "vga",
+            "price": 999,
+            "image": "./images/product-4.jpg"
+        },
+        {
+            "id": 5,
+            "title": "processor",
+            "price": 250,
+            "image": "./images/product-5.jpg"
+
+        },
+        {
+            "id": 6,
+            "title": "monitor",
+            "price": 850,
+            "image": "./images/product-6.jpg"
+
+        },
+        {
+            "id": 7,
+            "title": "psu",
+            "price": 600,
+            "image": "./images/product-7.jpg"
+        },
+        {
+            "id": 8,
+            "title": "casing",
+            "price": 350,
+            "image": "./images/product-8.jpg"
+        },
+        {
+            "id": 9,
+            "title": "tv",
+            "price": 799,
+            "image": "./images/product-8.jpg"
+        },
+        {
+            "id": 10,
+            "title": "psu",
+            "price": 150,
+            "image": "./images/product-9.jpg"
+        },
+        {
+            "id": 11,
+            "title": "motherboard",
+            "price": 650,
+            "image": "./images/product-7.jpg"
+        }
+    ]
+}
