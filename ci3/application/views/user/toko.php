@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- StyleSheet -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/toko.css" />
   <title>Shopping Cart Project</title>
 </head>
 
@@ -18,20 +18,26 @@
   <nav class="nav">
     <div class="nav__center container">
       <div class="nav__logo">
-        <h1>SHOPI<span>Q</span></h1>
+        <h1>KENTANG<span>SHOP</span></h1>
       </div>
-
+      <div class="home__icon">
+          <h2>home</h2>
+          
+        </div>
       <ul class="nav__list">
-        <a href="#" class="login">Login</a>
+     
         <div class="cart__icon">
           <h2>cart</h2>
           <span class="item__total">0</span>
         </div>
+
+        
       </ul>
+     
 
       <div class="hamburger">
         <svg>
-          <use xlink:href="./images/sprite.svg#icon-menu"></use>
+          <use xlink:href="<?php echo base_url() ?>assets/user/images/sprite.svg#icon-menu"></use>
         </svg>
       </div>
     </div>
@@ -92,7 +98,7 @@
     <div class="cart">
       <span class="close__cart">
         <svg>
-          <use xlink:href="./images/sprite.svg#icon-cross"></use>
+          <use xlink:href="<?php echo base_url() ?>assets/user/images/sprite.svg#icon-cross"></use>
         </svg>
       </span>
       <h1>Your Cart</h1>
@@ -135,7 +141,7 @@
     </div>
   </section>
 
-  <script src="app.js"></script>
+  <script src="<?php echo base_url() ?>assets/user/js/toko.js"></script>
 </body>
 
 </html>
