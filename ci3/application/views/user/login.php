@@ -14,9 +14,10 @@
 		<form action="#">
 			<h1>Buat Akun</h1>
 </br>
-			
+			<input type="text" placeholder="Username" />
 			<input type="text" placeholder="Name" />
 			<input type="email" placeholder="Email" />
+			<input type="text" placeholder="No Hp" />
             <input type="password" placeholder="Password" />
 </br>
 			<button>Daftar</button>
