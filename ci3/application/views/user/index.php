@@ -29,12 +29,12 @@
       <p>Channel Youtube Kentang Tech</p>
         </div>
         <div>
-      <a href="<?php echo base_url() ?>welcome/artikel">  <i class="fa fa-chalkboard-teacher fa-3x" aria-hidden="true"></i> </a>
+      <a href="<?php echo base_url() ?>home/artikel">  <i class="fa fa-chalkboard-teacher fa-3x" aria-hidden="true"></i> </a>
         <h3>Artikel</h3>
         <p> Artikel Seputar Teknologi </p>
         </div>
         <div>
-        <a href="<?php echo base_url() ?>welcome/login"> <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i></a>
+        <a href="<?php echo base_url() ?>home/login"> <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i></a>
         <h3>Toko</h3>
         <p> Komponen PC Terlengkap dengan Harga Terjangkau </p>
         </div>

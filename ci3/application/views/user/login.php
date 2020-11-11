@@ -6,33 +6,48 @@
         <meta name="viewport" content="width=device-width,initial0scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel = "stylesheet" href="<?php echo base_url() ?>assets/user/css/login.css">
-        <title> Login</title>
+        <title>Kentang Tech</title>
  <body>       
 
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#">
+		
+		<!--***************************** REGISTER ***************************************-->
+		<form action="<?= base_url('home/login') ?>" method="post">
 			<h1>Buat Akun</h1>
 </br>
-			<input type="text" placeholder="Username" />
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="text" placeholder="No Hp" />
-            <input type="password" placeholder="Password" />
+			<input type="text" name="username1" placeholder="Username" value="<?= set_value('username1') ?>" />
+			<?= form_error('username1', '<small class="text-danger pl-2">','</small>'); ?>
+			<input type="text"name="name" placeholder="Name" value="<?= set_value('name') ?>"/>
+			<?= form_error('name', '<small class="text-danger pl-2">','</small>'); ?>
+			<input type="email" name="email" placeholder="Email" value="<?= set_value('email') ?>" />
+			<?= form_error('email', '<small class="text-danger pl-2">','</small>'); ?>
+			<input type="text" name="nomor_hp" placeholder="No Hp" value="<?= set_value('nomor_hp') ?>"/>
+			<?= form_error('nomor_hp', '<small class="text-danger pl-2">','</small>'); ?>
+            <input type="password" id="password1" name="password1" placeholder="Password" />
+			<?= form_error('password1', '<small class="text-danger pl-2">','</small>'); ?>
+			<input type="password" id="password2" name="password2" placeholder="Re-typePassword" />
+			
 </br>
-			<button>Daftar</button>
+			<button type="submit">Daftar</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
+
+	<!--************************************ AKHIR REGISTER *******************************-->
+	
+		<!-- ************************ LOGIN **************************************-->
 		<form action="#">
 			<h1>Login</h1>
 </br>
 			
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input type="text" name="username" placeholder="Username" />
+			<input type="password" name="password" placeholder="Password" />
 </br>
 <button><a href="toko">Masuk</a></button>
 		</form>
+
+		<!-- ************************ AKHIR LOGIN **************************************-->
 	</div>
 	<div class="overlay-container">
 		<div class="overlay">
