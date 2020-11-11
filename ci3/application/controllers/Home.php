@@ -14,9 +14,10 @@ class Home extends CI_Controller
 		$this->load->view('user/toko');
 	}
 
-	public function login()
+	public function register()
 	{
 		$this->load->library('form_validation');
+		
 		$this->form_validation->set_rules('username1', 'Username', 'required|trim|is_unique[user.username]',[
 			'is_unique' => 'username already registered'
 		]);
@@ -33,11 +34,10 @@ class Home extends CI_Controller
 
 			if($this->form_validation->run() == false ){
 				$this->load->view('user/login');
-				$this->session->set_flashdata('message_error','<div class="alert alert-success">
-				<strong>Failed!</strong> Your account failed to create. Try again
-			  </div>
-			  ');
-			}else{
+				
+			}
+			else
+			{
 				$data = [
 					'username' => htmlspecialchar($this->input->post('username1', true)),
 					'nama'	=>	htmlspecialchar($this->input->post('name', true)),
@@ -52,6 +52,67 @@ class Home extends CI_Controller
 			  ');
 				redirect ('home/login');
 			}
+
+			if($this->form_validation->run() == false ){
+			}
+			else
+			{
+				$this->_login();
+			}
+			
+				
+
+			
+	}
+	public function login(){
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('username', 'Username', 'required|trim');
+		$this->form_validation->set_rules('password', 'Password', 'required|trim');
+
+		if($this->form_validation->run() == false ){
+			$this->load->view('user/login');
+			}
+			else
+			{
+				$this->_login();
+			}
+	}
+	
+
+	private function _login(){
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+
+		$user = $this->db->get_where('user', ['username'=> $username])->row_array();
+		$password =$this->db->get_where('user', ['password'=> $password])->row_array();
+		
+		if($user){
+			if($password){
+				$data = [
+					'username' => $user['username'],
+					'nama'	=> $user['nama']
+
+				];
+				$this->session->set_userdata($data);
+				redirect('home/toko');
+
+			}else{
+				$this->session->set_flashdata('message','<div class="alert alert-success">
+			<strong>Failed!</strong> Wrong Password
+		  </div>
+		  ');
+			redirect ('home/login');
+			}
+
+			
+		}else{
+			$this->session->set_flashdata('message','<div class="alert alert-success">
+			<strong>Failed!</strong> Email is not registered
+		  </div>
+		  ');
+			redirect ('home/login');
+
+		}
 	}
 
 	public function artikel()

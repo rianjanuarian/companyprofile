@@ -37,16 +37,19 @@
 	<!--************************************ AKHIR REGISTER *******************************-->
 	
 		<!-- ************************ LOGIN **************************************-->
+		
 		<?= $this->session->flashdata('message') ?>
-		<?= $this->session->flashdata('message_error') ?>
-		<form action="#">
+		
+		<form method="post" action="<?= base_url('home/login')?>">
 			<h1>Login</h1>
 </br>
 			
-			<input type="text" name="username" placeholder="Username" />
+			<input type="text" name="username" placeholder="Username"<?= set_value('username')?> />
+			<?= form_error('username', '<small class="text-danger pl-2">','</small>'); ?>
 			<input type="password" name="password" placeholder="Password" />
+			<?= form_error('password', '<small class="text-danger pl-2">','</small>'); ?>
 </br>
-<button><a href="toko">Masuk</a></button>
+<button type="submit">Masuk</button>
 		</form>
 
 		<!-- ************************ AKHIR LOGIN **************************************-->
