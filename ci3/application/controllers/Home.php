@@ -11,7 +11,11 @@ class Home extends CI_Controller
 
 	public function toko()
 	{
+		$data['user'] = $this->db->get_where('user', [
+			'username' => $this->session->userdata('username')])->row_array();
+		
 		$this->load->view('user/toko');
+
 	}
 
 	public function register()
@@ -113,6 +117,16 @@ class Home extends CI_Controller
 			redirect ('home/login');
 
 		}
+	}
+	public function logout()
+	{
+		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('nama');
+		$this->session->set_flashdata('message','<div class="alert alert-success">
+			<strong>Succes</strong> You have been logged out
+		  </div>
+		  ');
+			redirect ('home');
 	}
 
 	public function artikel()
