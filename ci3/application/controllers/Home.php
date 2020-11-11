@@ -39,10 +39,10 @@ class Home extends CI_Controller
 			  ');
 			}else{
 				$data = [
-					'username' => $this->input->post('username1'),
-					'nama'	=>	$this->input->post('name'),
-					'email'	=>	$this->input->post('email'),
-					'nomor_hp' => $this->input->post('nomor_hp'),
+					'username' => htmlspecialchar($this->input->post('username1', true)),
+					'nama'	=>	htmlspecialchar($this->input->post('name', true)),
+					'email'	=>	htmlspecialchar($this->input->post('email', true)),
+					'nomor_hp' => htmlspecialchar($this->input->post('nomor_hp', true)),
 					'password' =>$this->input->post('password1'),
 				];
 				$this->db->insert('user', $data);
