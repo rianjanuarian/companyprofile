@@ -37,6 +37,8 @@
 	<!--************************************ AKHIR REGISTER *******************************-->
 	
 		<!-- ************************ LOGIN **************************************-->
+		<?= $this->session->flashdata('message') ?>
+		<?= $this->session->flashdata('message_error') ?>
 		<form action="#">
 			<h1>Login</h1>
 </br>
