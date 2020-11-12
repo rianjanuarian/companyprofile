@@ -6,14 +6,15 @@
         <meta name="viewport" content="width=device-width,initial0scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel = "stylesheet" href="<?php echo base_url() ?>assets/user/css/login.css">
-        <title>Kentang Tech</title>
+        
+		<title>Kentang Tech</title>
  <body>       
 
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
 		
 		<!--***************************** REGISTER ***************************************-->
-		<form action="<?= base_url('home/login') ?>" method="post">
+		<form action="<?= base_url('home/register') ?>" method="post">
 			<h1>Buat Akun</h1>
 </br>
 			<input type="text" name="username1" placeholder="Username" value="<?= set_value('username1') ?>" />
