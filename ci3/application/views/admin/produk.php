@@ -33,8 +33,9 @@
                                         <th>No</th>
                                         <th>Foto</th>
                                         <th>Nama Produk</th>
-                                        <th>Nama Kategori</th>
+                                        <th>Nama</th>
                                         <th>Merk</th>
+                                        <th>Stok</th>
                                         <th>Harga</th>
                                         <th>Action</th>
                                     </tr>
@@ -43,10 +44,11 @@
                                     <?php foreach ($produk as $index => $a) { ?>
                                         <tr>
                                             <td><?= $index + 1; ?></td>
-                                            <td></td>
+                                            <td><img src="<?= base_url('img/') . $a->foto_produk; ?>" style="max-width: 10rem;" alt="foto_produk"></td>
                                             <td><?= $a->nama_produk; ?></td>
                                             <td><?= $a->nama_kategori; ?></td>
                                             <td><?= $a->merk; ?></td>
+                                            <td><?= $a->stok; ?></td>
                                             <td><?= $a->harga; ?></td>
                                             <td class="text-center">
                                                 <a href="javascript:;" class="text-right" data-id="<?= $a->kode_produk; ?>" id="tomboledit"><i class="fas fa-edit pr-3"></i></a>
@@ -60,8 +62,9 @@
                                         <th>No</th>
                                         <th>Foto</th>
                                         <th>Nama Produk</th>
-                                        <th>Nama Kategori</th>
+                                        <th>Nama</th>
                                         <th>Merk</th>
+                                        <th>Stok</th>
                                         <th>Harga</th>
                                         <th>Action</th>
                                     </tr>
@@ -86,7 +89,7 @@
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal-title">Modal title</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -115,6 +118,18 @@
                         <div class="form-group col-12">
                             <input type="number" name="harga" id="harga" class="form-control" placeholder="Masukkan Harga Produk">
                         </div>
+                        <div class="img mx-auto p-2" id="gambar">
+
+                        </div>
+                        <div class="input-group mb-3 col-12">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Upload</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="foto" id="foto">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -133,13 +148,19 @@
             $('#modal-title').empty();
             $('#modal-title').append('Tambah Produk');
             $('#modal').modal('show');
+            $('#gambar').empty();
             $('#nama').val('');
+            $('#kategori').val('');
+            $('#merk').val('');
+            $('#stok').val('');
+            $('#harga').val('');
             $('#submit').text('Tambah Produk');
         });
         $('#mydata tr').on('click', '#tomboledit', function() {
             $('form').attr('action', '<?= base_url('admin/Produk/update') ?>');
             $('#modal').modal('show');
             $('#modal-title').empty();
+            $('#gambar').empty();
             $('#modal-title').append('Edit Produk');
             $('#submit').empty();
             $('#submit').append('Edit Produk');
@@ -158,6 +179,7 @@
                     $('#kategori').val(data[0]['kode_kategori']);
                     $('#merk').val(data[0]['merk']);
                     $('#stok').val(data[0]['stok']);
+                    $('#gambar').append($('<img src="<?= base_url('img/') ?>' + data[0]['foto_produk'] + '" class="img-fluid" style="max-width:10rem;">'))
                     $('#harga').val(data[0]['harga']);
                 }
             });
