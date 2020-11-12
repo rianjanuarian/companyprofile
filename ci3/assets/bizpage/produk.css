@@ -9,3 +9,11 @@
 	background-color: #fff;
 	color: #18d26e;
 }
+#show {
+	background-color: #18d26e;
+	color: #fff;
+}
+#show:hover {
+	background-color: #fff;
+	color: #18d26e;
+}
