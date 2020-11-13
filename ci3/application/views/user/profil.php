@@ -46,7 +46,7 @@
           <!-- Material input -->
           <div class="md-form form-group">
             <label for="email">Email</label>
-            <input type="text" class="form-control" id="email" value="<?= $profil[0]->email ?>" name="email">
+            <input type="text" class="form-control" id="email" value="<?= $profil[0]->email; ?>" name="email">
             <?= form_error('email', '<small class="text-danger pl-3">', '</small>') ?>
           </div>
         </div>
