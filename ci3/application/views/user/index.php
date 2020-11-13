@@ -36,7 +36,7 @@
                 <p> Artikel Seputar Teknologi </p>
             </div>
             <div>
-                <a href="<?php echo base_url() ?>/produk"> <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i></a>
+                <a href="<?php echo base_url() ?>produk"> <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i></a>
                 <h3>Toko</h3>
                 <p> Komponen PC Terlengkap dengan Harga Terjangkau </p>
             </div>
