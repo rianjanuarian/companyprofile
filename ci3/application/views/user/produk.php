@@ -55,7 +55,7 @@
                  <div class="col-md-4 p-3" data-aos="fade-up" data-aos-delay="100">
                      <div class="about-col">
                          <div class="img">
-                             <img src="<?= base_url('img/') . $a->foto_produk ?>" alt="" style="width: 18rem;" class="img-thumbnail overflow-hidden">
+                             <img src="<?= base_url('img/') . $a->foto_produk ?>" alt="" style="height: 18rem;" class="img-thumbnail overflow-hidden">
                          </div>
                          <h2 class="title"><a href="#"><?= $a->nama_produk; ?></a></h2>
                          <p>
