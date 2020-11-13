@@ -47,7 +47,7 @@ class Auth extends CI_Controller
             redirect(base_url('Home'));
         } else {
             $this->session->set_flashdata('gagal', 'Username atau Password salah!!!');
-            redirect(base_url('Produk'));
+            redirect(base_url('Home'));
         }
     }
     function register()
