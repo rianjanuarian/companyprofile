@@ -64,7 +64,7 @@ class Profil extends CI_Controller
                 'username' => $username
             );
 
-            $this->m_profil->update($where,$data, 'user');
+            $this->M_admin->updatedata($where,$data, 'user');
             $this->session->set_flashdata('message', '<div class="alert alert-success" role=""alert>Profil Telah di Ubah</div>');
             redirect('user/profil');
         }

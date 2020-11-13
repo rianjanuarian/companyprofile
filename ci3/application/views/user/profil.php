@@ -23,7 +23,7 @@
             <!-- Material input -->
             <div class="md-form form-group">
               <label for="username">username</label>
-              <input type="text" class="form-control" id="username" value="<?= $profil[0]->username ?>" name="username" readonly>
+              <input type="text" class="form-control" id="username" value="<?= $profil[0]->username; ?>" name="username" readonly>
             </div>
           </div>
           <!-- Grid column -->
