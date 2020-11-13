@@ -30,7 +30,7 @@
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
 </br>
-<button><a href="toko.php">Masuk</a></button>
+<button><a href="toko/index.php">Masuk</a></button>
 		</form>
 	</div>
 	<div class="overlay-container">
