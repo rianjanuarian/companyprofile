@@ -77,3 +77,43 @@
 </div>
 </div>
 <div class="p-5"></div>
+<script>
+    $(document).ready(function() {
+        $('#cart').load("<?php echo base_url(); ?>cart/load_cart");
+        $('.row').on('blur', "#qty", function() {
+            var row = $(this).data('row');
+            var qty = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('cart/update_cart') ?>",
+                dataType: "JSON",
+                data: {
+                    row: row,
+                    qty: qty
+                },
+                success: function(data) {
+                    console.log(data);
+
+                },
+            });
+            $('#cart').load("<?php echo base_url(); ?>cart/load_cart");
+        });
+        $('.row').on('click', '#hapus', function() {
+            var row = $(this).data("row"); //mengambil row_id dari artibut id
+            $.ajax({
+                url: "<?= base_url(); ?>cart/hapus_cart",
+                method: "POST",
+                data: {
+                    row: row
+                },
+                success: function(data) {
+                    $('#cart').html(data);
+                }
+            });
+        })
+        var total = 0;
+        var subtotal = $('#qty').data('row');
+        console.log(subtotal);
+        $('#total').append();
+    });
+</script>

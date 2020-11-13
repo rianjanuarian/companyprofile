@@ -12,6 +12,8 @@
     <!-- Favicons -->
     <link href="<?= base_url('assets/bizpage/') ?>assets/img/favicon.png" rel="icon">
     <link href="<?= base_url('assets/bizpage/') ?>assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
@@ -25,7 +27,7 @@
     <link href="<?= base_url('assets/bizpage/') ?>assets/vendor/venobox/venobox.css" rel="stylesheet">
     <link href="<?= base_url('assets/bizpage/') ?>assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/bizpage/') ?>assets/vendor/aos/aos.css" rel="stylesheet">
-
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <!-- Template Main CSS File -->
     <link href="<?= base_url('assets/bizpage/') ?>assets/css/style.css" rel="stylesheet">
 
@@ -56,15 +58,18 @@
                             <li><a href="#services">Services</a></li>
                             <li><a href="#produk">Produk</a></li>
                             <li><a href="#team">Team</a></li>
-                            <li class="drop-down"><a href="">Drop Down</a>
-                                <ul>
-                                    <li><a href="#">Profil</a></li>
-                                    <li><a href="#">History</a></li>
-                                    <li><a href="#">Order</a></li>
-                                    <li><a href="#">Keranjang</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="">login</a></li>
+                            <?php if ($this->session->userdata('username') != '') { ?>
+                                <li class="drop-down"><a href="">Drop Down</a>
+                                    <ul>
+                                        <li><a href="#">Profil</a></li>
+                                        <li><a href="#">History</a></li>
+                                        <li><a href="#">Order</a></li>
+                                        <li><a href="<?= base_url('Cart') ?>">Keranjang</a></li>
+                                    </ul>
+                                </li>
+                            <?php } else { ?>
+                                <li><a href="">login</a></li>
+                            <?php } ?>
                         </ul>
                     </nav><!-- .nav-menu -->
                 </div>

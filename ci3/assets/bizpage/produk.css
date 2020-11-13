@@ -17,3 +17,11 @@
 	background-color: #fff;
 	color: #18d26e;
 }
+#tombolcart {
+	background-color: #18d26e;
+	color: #fff;
+}
+#tombolcart:hover {
+	background-color: #fff;
+	color: #18d26e;
+}
