@@ -1,5 +1,11 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <div class="container" style="margin-top: 10%;">
+    <?php
+    $total = 0;
+    foreach ($this->cart->contents() as $a) {
+        $total += $a['subtotal'];
+    }
+    ?>
     <div class="col-xs-2">
         <h4 class="product-name"><strong>Foto</strong></h4>
     </div>
@@ -27,42 +33,62 @@
                 <div class="panel-body">
                     <div id="cart">
 
-                        <div class="row">
-                            <div class="col-xs-2"><img class="img-responsive" src="http://placehold.it/100x70">
-                            </div>
-                            <div class="col-xs-4">
-                                <h4 class="product-name"><strong>nama</strong></h4>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="col-xs-4 text-right">
-                                    <h6><strong>' . $a['price'] . '</strong></h6>
-                                </div>
-                                <div class="col-xs-4">
-                                    <input type="text" class="form-control input-sm" id="qty" data-subtotal="" data-row="" value="2">
-                                </div>
-                                <div class="col-xs-2 text-right">
-                                    <h6><strong>50000</strong></h6>
-                                </div>
-                                <div class="col-xs-2">
-                                    <button type="button" id="hapus" data-row="" class="btn btn-link btn-xs">
-                                        <span class="glyphicon glyphicon-trash"> </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
                     </div>
                 </div>
             </div>
+            <div class="card p-4 mb-3">
+                <form action="" method="post"></form>
+                <div class="row">
+                    <div class="form-group col-3">
+                        <label for="provinsi">Provinsi</label>
+                        <select name="provinsi" class="form-control" id="provinsi">
+                            <option value="">--Pilih Provinsi--</option>
+                            <?php foreach ($provinsi as $a) {
+                            ?>
+                                <option value="<?= $a->province_id ?>"><?= $a->province; ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="kabupaten">Kabupaten</label>
+                        <select name="kabupaten" class="form-control" id="kabupaten">
+                            <option value="">--Pilih Kabupaten--</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="kabupaten">Kode Pos</label>
+                        <input type="text" name="kodepos" class="form-control" id="kodepos">
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="kabupaten">Kurir</label>
+                        <select name="kurir" class="form-control" id="kurir">
+                            <option value="">--Pilih Kurir--</option>
+                            <option value="jne">JNE</option>
+                            <option value="tiki">TIKI</option>
+                            <option value="pos">POS</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="exampleFormControlTextarea1">Detail Alamat</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <div class="row" id="servis">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="panel-footer">
                 <div class="row text-center">
                     <div class="col-xs-3">
-                        <a href="<?= base_url('pelanggan/pemesanan/proses_beli') ?>" type="button" class="btn btn-success btn-block">
+                        <a href="#" id="lanjut" type="button" class="btn btn-success btn-block">
                             continue shopping
                         </a>
                     </div>
                     <div class="col-xs-6">
-                        <h4 class="text-right">Total : Rp. <strong id="total">760</strong></h4>
+                        <h4 class="text-right">Total : Rp. <strong id="total"><?= $total; ?></strong></h4>
                     </div>
                     <div class="col-xs-3">
                         <a href="<?= base_url('pelanggan/pemesanan/proses_beli') ?>" type="button" class="btn btn-success btn-block">
@@ -93,10 +119,10 @@
                 },
                 success: function(data) {
                     console.log(data);
-
                 },
             });
             $('#cart').load("<?php echo base_url(); ?>cart/load_cart");
+
         });
         $('.row').on('click', '#hapus', function() {
             var row = $(this).data("row"); //mengambil row_id dari artibut id
@@ -111,9 +137,58 @@
                 }
             });
         })
-        var total = 0;
-        var subtotal = $('#qty').data('row');
-        console.log(subtotal);
-        $('#total').append();
+        $("#provinsi").change(function() {
+            $("#kabupaten").empty();
+            var id_provinsi = $(this).val();
+            $.ajax({
+                url: "<?= base_url('Cart/get_city'); ?>",
+                type: 'GET',
+                data: {
+                    'id_province': id_provinsi
+                },
+                dataType: 'json',
+                success: function(data) {
+                    var results = data["rajaongkir"]["results"];
+                    // console.log(results);
+                    for (var i = 0; i < results.length; i++) {
+                        $("#kabupaten").append($('<option>', {
+                            value: results[i]["city_id"],
+                            text: results[i]["city_name"]
+                        }));
+                    }
+                }
+            })
+        })
+        $("#kurir").change(function() {
+            var kurir = $(this).val()
+            var id_origin = $("#kabupaten").val();
+            var alamat = $("#kabupaten option:selected").attr('data-alamat');
+            $('#servis').empty();
+            $.ajax({
+                url: "<?= base_url('Cart/get_cost'); ?>",
+                type: 'POST',
+                data: {
+                    'origin': id_origin,
+                    'kurir': kurir
+                },
+                dataType: 'json',
+                success: function(data) {
+                    // console.log(data);
+                    var results = data["rajaongkir"]["results"][0]["costs"];
+                    console.log(results);
+                    for (var i = 0; i < results.length; i++) {
+                        $("#servis").append($("<div class='col-3'>" + "<input type='radio'" + "value='" + results[i]["cost"][0]["value"] + "'name='pengiriman' aria-label='Radio button for following text input'>" +
+                            results[i]["service"] + " : " + results[i]["cost"][0]["value"] + "</div>"));
+                    }
+                }
+            })
+        })
+        $("#servis").click(function() {
+            var radioValue = $("input[name='pengiriman']:checked").val();
+            var total = <?= $total; ?>;
+            var jumlah = parseInt(radioValue) + parseInt(total);
+            $("#total").empty();
+            $("#total").append(jumlah);
+        })
     });
 </script>

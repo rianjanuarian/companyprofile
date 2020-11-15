@@ -59,7 +59,7 @@
                             <li><a href="#produk">Produk</a></li>
                             <li><a href="#team">Team</a></li>
                             <?php if ($this->session->userdata('username') != '') { ?>
-                                <li class="drop-down"><a href="">Drop Down</a>
+                                <li class="drop-down"><a href=""><?= $this->session->userdata('username'); ?></a>
                                     <ul>
                                         <li><a href="#">Profil</a></li>
                                         <li><a href="#">History</a></li>
@@ -68,7 +68,7 @@
                                     </ul>
                                 </li>
                             <?php } else { ?>
-                                <li><a href="">login</a></li>
+                                <li><a href="./Auth">login</a></li>
                             <?php } ?>
                         </ul>
                     </nav><!-- .nav-menu -->
