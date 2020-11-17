@@ -7,47 +7,44 @@ class Snap extends CI_Controller
         parent::__construct();
         $params = array('server_key' => 'SB-Mid-server-P8cM531xM5TsCq1D_ZfIK8lH', 'production' => false);
         $this->load->library('Midtrans');
+        $this->load->library('cart');
         $this->midtrans->config($params);
         $this->load->helper('url');
     }
 
     public function index()
     {
-        $this->load->view('user/snap');
+        $data['cart'] = $this->cart->contents();
+        $data['keranjang'] = [];
+        foreach ($data['cart'] as $a) {
+            $data['keranjang'][] = ['id' => $a['id'], 'harga' => $a['price']];
+        }
+        $this->load->view('user/snap', $data);
     }
-
     public function token()
     {
-
+        $data['cart'] = $this->cart->contents();
+        $total = 0;
+        foreach ($data['cart'] as $b) {
+            $total += $b['subtotal'];
+        }
         // Required
         $transaction_details = array(
             'order_id' => rand(),
-            'gross_amount' => 134000, // no decimal allowed for creditcard
+            'gross_amount' => $total, // no decimal allowed for creditcard
         );
+        $data['keranjang'] = [];
+        foreach ($data['cart'] as $a) {
+            $data['keranjang'][] = [
+                'id' => $a['id'],
+                'price' => $a['price'],
+                'quantity' => $a['qty'],
+                'name' => $a['name']
 
+            ];
+        }
         // Optional
-        $item1_details = array(
-            'id' => 'a1',
-            'price' => 18000,
-            'quantity' => 3,
-            'name' => "Apple"
-        );
-
-        // Optional
-        $item2_details = array(
-            'id' => 'a2',
-            'price' => 20000,
-            'quantity' => 2,
-            'name' => "Orange"
-        );
-        $item3_details = array(
-            'id' => 'a2',
-            'price' => 20000,
-            'quantity' => 2,
-            'name' => "Mangga"
-        );
-        // Optional
-        $item_details = array($item1_details, $item2_details, $item3_details);
+        $item_details = $data['keranjang'];
 
         // Optional
         $billing_address = array(
@@ -61,24 +58,20 @@ class Snap extends CI_Controller
         );
 
         // Optional
-        $shipping_address = array(
-            'first_name'    => "Obet",
-            'last_name'     => "Supriadi",
-            'address'       => "Manggis 90",
-            'city'          => "Jakarta",
-            'postal_code'   => "16601",
-            'phone'         => "08113366345",
-            'country_code'  => 'IDN'
-        );
+        // $shipping_address = array(
+        //     'first_name'    => $this->session->userdata('nama'),
+        //     'address'       => $this->input->post('alamat'),
+        //     'city'          => $this->input->post('kabupaten'),
+        //     'postal_code'   => $this->input->post('kodepos'),
+        //     'phone'         => $this->session->userdata('nomor_hp'),
+        //     'country_code'  => 'IDN'
+        // );
 
         // Optional
         $customer_details = array(
-            'first_name'    => "Andri",
-            'last_name'     => "Litani",
-            'email'         => "andri@litani.com",
-            'phone'         => "081122334455",
-            'billing_address'  => $billing_address,
-            'shipping_address' => $shipping_address
+            'first_name'    => $this->session->userdata('nama'),
+            'email'         => $this->session->userdata('email'),
+            'phone'         => $this->session->userdata('nomor_hp'),
         );
 
         // Data yang akan dikirim untuk request redirect_url.

@@ -37,47 +37,47 @@
                 </div>
             </div>
             <div class="card p-4 mb-3">
-                <form action="" method="post"></form>
-                <div class="row">
-                    <div class="form-group col-3">
-                        <label for="provinsi">Provinsi</label>
-                        <select name="provinsi" class="form-control" id="provinsi">
-                            <option value="">--Pilih Provinsi--</option>
-                            <?php foreach ($provinsi as $a) {
-                            ?>
-                                <option value="<?= $a->province_id ?>"><?= $a->province; ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="form-group col-3">
-                        <label for="kabupaten">Kabupaten</label>
-                        <select name="kabupaten" class="form-control" id="kabupaten">
-                            <option value="">--Pilih Kabupaten--</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-3">
-                        <label for="kabupaten">Kode Pos</label>
-                        <input type="text" name="kodepos" class="form-control" id="kodepos">
-                    </div>
-                    <div class="form-group col-3">
-                        <label for="kabupaten">Kurir</label>
-                        <select name="kurir" class="form-control" id="kurir">
-                            <option value="">--Pilih Kurir--</option>
-                            <option value="jne">JNE</option>
-                            <option value="tiki">TIKI</option>
-                            <option value="pos">POS</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-12">
-                        <label for="exampleFormControlTextarea1">Detail Alamat</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <div class="col-12">
-                        <div class="row" id="servis">
+                <form action="<?= base_url('Checkout') ?>" method="post">
+                    <div class="row">
+                        <div class="form-group col-3">
+                            <label for="provinsi">Provinsi</label>
+                            <select name="provinsi" class="form-control" id="provinsi">
+                                <option value="">--Pilih Provinsi--</option>
+                                <?php foreach ($provinsi as $a) {
+                                ?>
+                                    <option value="<?= $a->province_id ?>"><?= $a->province; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="kabupaten">Kabupaten</label>
+                            <select name="kabupaten" class="form-control" id="kabupaten">
+                                <option value="">--Pilih Kabupaten--</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="kabupaten">Kode Pos</label>
+                            <input type="text" required name="kodepos" class="form-control" id="kodepos">
+                        </div>
+                        <div class="form-group col-3">
+                            <label for="kabupaten">Kurir</label>
+                            <select name="kurir" class="form-control" id="kurir">
+                                <option value="">--Pilih Kurir--</option>
+                                <option value="jne">JNE</option>
+                                <option value="tiki">TIKI</option>
+                                <option value="pos">POS</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="exampleFormControlTextarea1">Detail Alamat</label>
+                            <textarea class="form-control" name="alamat" required rows="3"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <div class="row" id="servis">
 
+                            </div>
                         </div>
                     </div>
-                </div>
             </div>
 
             <div class="panel-footer">
@@ -91,9 +91,10 @@
                         <h4 class="text-right">Total : Rp. <strong id="total"><?= $total; ?></strong></h4>
                     </div>
                     <div class="col-xs-3">
-                        <a href="<?= base_url('pelanggan/pemesanan/proses_beli') ?>" type="button" class="btn btn-success btn-block">
+                        <button type="submit" role="button" class="btn btn-success btn-block">
                             Checkout
-                        </a>
+                        </button>
+                        </form>
                     </div>
 
                 </div>
@@ -162,7 +163,8 @@
         $("#kurir").change(function() {
             var kurir = $(this).val()
             var id_origin = $("#kabupaten").val();
-            var alamat = $("#kabupaten option:selected").attr('data-alamat');
+            var provinsi = $("#provinsi  option:selected").text();
+            var kabupaten = $("#kabupaten option:selected").text();
             $('#servis').empty();
             $.ajax({
                 url: "<?= base_url('Cart/get_cost'); ?>",
@@ -180,6 +182,7 @@
                         $("#servis").append($("<div class='col-3'>" + "<input type='radio'" + "value='" + results[i]["cost"][0]["value"] + "'name='pengiriman' aria-label='Radio button for following text input'>" +
                             results[i]["service"] + " : " + results[i]["cost"][0]["value"] + "</div>"));
                     }
+                    $("#servis").append("<input type='text' name='nama_kabupaten' hidden value='" + kabupaten + "'>" + "<input type='text' hidden name='nama_provinsi' value='" + provinsi + "'>");
                 }
             })
         })

@@ -1,25 +1,30 @@
-<html>
-<title>Checkout</title>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-XvmRg2reNohI04V1"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </head>
 
 <body>
-
 
     <form id="payment-form" method="post" action="<?= site_url() ?>/snap/finish">
         <input type="hidden" name="result_type" id="result-type" value=""></div>
         <input type="hidden" name="result_data" id="result-data" value=""></div>
     </form>
-    <?php print_r($keranjang); ?>
-    <button id="pay-button">Pay!</button>
-    <script type="text/javascript">
-        $('#pay-button').click(function(event) {
-            event.preventDefault();
-            $(this).attr("disabled", "disabled");
+    <input type="text" name="kabupaten" value="<?= $this->input->post('nama_kabupaten') ?>" id="kabupaten">
+    <input type="text" name="kodepos" value="<?= $this->input->post('kodepos') ?>" id="kodepos">
+    <input type="text" name="alamat" value="<?= $this->input->post('alamat') ?>" id="alamat">
 
+    <script type="text/javascript">
+        // For example trigger on button clicked, or any time you need
+        $(document).ready(function() {
+            var kabupaten = $("#kabupaten").val();
+            var kodepos = $("#kodepos").val();
+            var alamat = $("#alamat").val();
             $.ajax({
                 url: '<?= site_url() ?>/snap/token',
                 cache: false,
@@ -29,15 +34,15 @@
 
                     console.log('token = ' + data);
 
-                    var resultType = document.getElementById('result-type');
-                    var resultData = document.getElementById('result-data');
+                    // var resultType = document.getElementById('result-type');
+                    // var resultData = document.getElementById('result-data');
 
-                    function changeResult(type, data) {
-                        $("#result-type").val(type);
-                        $("#result-data").val(JSON.stringify(data));
-                        //resultType.innerHTML = type;
-                        //resultData.innerHTML = JSON.stringify(data);
-                    }
+                    // function changeResult(type, data) {
+                    //     $("#result-type").val(type);
+                    //     $("#result-data").val(JSON.stringify(data));
+                    //     //resultType.innerHTML = type;
+                    //     //resultData.innerHTML = JSON.stringify(data);
+                    // }
 
                     snap.pay(data, {
 
@@ -62,8 +67,6 @@
             });
         });
     </script>
-
-
 </body>
 
 </html>

@@ -4,7 +4,7 @@
          <div class="row p-3">
              <div class="col-12">
                  <div class="input-group">
-                     <input class="form-control border-secondary py-2" type="search" placeholder="search">
+                     <input class="form-control border-secondary py-2" id="search" type="search" placeholder="search">
                      <div class="input-group-append">
                          <div class="btn btn-outline-success">
                              <i class="fa fa-search"></i>
@@ -13,17 +13,18 @@
                  </div>
              </div>
          </div>
-         <div class="row about-cols ">
+         <div class="row about-cols " id="tampil">
              <?php foreach ($produk as $a) { ?>
                  <div class="col-md-4 p-3" id="card" data-aos="fade-up" data-aos-delay="100">
                      <div class="about-col">
                          <div class="img">
                              <img src="<?= base_url('img/') . $a->foto_produk ?>" alt="" style="height: 18rem;" class="img-thumbnail overflow-hidden">
                          </div>
-                         <h2 class="title"><a href="#"><?= $a->nama_produk; ?></a></h2>
-                         <p>
-                             Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                         <h2 class="title text-center"><a href="#"><?= $a->nama_produk; ?></a></h2>
+                         <p class="text-center">
+                             <?= $a->merk; ?>
                          </p>
+                         <h6 class="text-center"><strong>Rp. <?= number_format($a->harga, 0, ',', '.'); ?></strong></h6>
                          <div class="col">
                              <div class="row">
                                  <button class="form-control col-12 col-md-6" id="show">Detail</button>
@@ -34,7 +35,6 @@
                                  <?php } ?>
                              </div>
                          </div>
-
                      </div>
                  </div>
              <?php } ?>
@@ -75,27 +75,32 @@
              var produk = $(this).val();
              $.ajax({
                  type: "POST",
-                 url: "<?= base_url('pelanggan/produk/getproduk') ?>",
+                 url: "<?= base_url('produk/getproduk') ?>",
                  dataType: "JSON",
                  data: {
                      produk: produk
                  },
                  success: function(data) {
                      console.log(data);
-                     $('.row').empty();
+                     $('#tampil').empty();
                      for (i = 0; i < data.length; i++) {
-                         $('.row').append('<div class="card col-6 col-md-3 p-2">' +
-                             '<div class="card-body">' +
-                             '<h5 class="card-title" id="nama_produk">' + data[i]['nama_produk'] + '</h5>' +
-                             '<p class="card-text" id="harga_produk">' + data[i]['harga_produk'] + '</p>' +
-                             '<p class="card-text">' + data[i]['nama_bs'] + '</p>' +
-                             '<a href = "javascript:;"' +
-                             ' id = "addcart"' +
-                             '  class = "btn text-center open-submit col-12 col-md-12"' +
-                             ' data - produk = "' + data[i]['kode_produk'] + '"' +
-                             ' data - harga = "' + data[i]['harga_produk'] + '"' +
-                             ' data - nama = "' + data[i]['nama_produk'] + '" > Add to cart </a>' +
-                             '</div></div>');
+                         $('#tampil').append('<div class="col-md-4 p-3" id="card">' +
+                             '<div class="about-col">' +
+                             '<div class="img">' +
+                             '<img src="./img/' + data[i]['foto_produk'] + '" alt="" style="height: 18rem;" class="img-thumbnail overflow-hidden">' +
+                             ' </div>' +
+                             '<h2 class="title"><a href="#">' + data[i]['nama_produk'] + '</a></h2>' +
+                             '<p>' +
+                             ' Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' +
+                             '</p>' +
+                             '<div class="col">' +
+                             '<div class="row">' +
+                             '<button class="form-control col-12 col-md-6" id="show">Detail</button>' +
+                             '<button class="form-control col-12 col-md-6" data-produk="' + data[i]['kode_produk'] + '" data-nama="' + data[i]['nama_produk'] + '" data-harga="' + data[i]['harga'] + '" id="addcart">Add to cart</button>' +
+                             '</div>' +
+                             '</div>' +
+                             '</div>' +
+                             '</div>');
                      }
                  },
              });

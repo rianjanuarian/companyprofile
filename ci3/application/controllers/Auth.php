@@ -13,7 +13,7 @@ class Auth extends CI_Controller
     {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('username', 'Username', 'required|trim');
-        $this->form_validation->set_rules('password', 'Password', 'required|trim');
+        $this->form_validation->set_rules('password', 'Password', 'required');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('user/login');
@@ -41,13 +41,16 @@ class Auth extends CI_Controller
             $datauser = $this->M_auth->ceklogin('user', $data)->result_array();
             $data_session = array(
                 'username' => $datauser[0]['username'],
+                'nama' => $datauser[0]['nama'],
+                'email' => $datauser[0]['email'],
+                'nomor_hp' => $datauser[0]['nomor_hp'],
                 'foto' => $datauser[0]['foto']
             );
             $this->session->set_userdata($data_session);
             redirect(base_url('Home'));
         } else {
             $this->session->set_flashdata('gagal', 'Username atau Password salah!!!');
-            redirect(base_url('Home'));
+            redirect(base_url('Auth'));
         }
     }
     function register()
@@ -59,16 +62,16 @@ class Auth extends CI_Controller
         $username = $this->input->post('username');
         $nama = $this->input->post('nama');
         $email = $this->input->post('email');
-        $no = $this->input->post('no');
-        $password = md5($this->input->post('password'));
+        $no = $this->input->post('nomor_hp');
+        $password = md5($this->input->post('password1'));
         $data = [
-            'username_cs' => $username,
-            'nama_cs' => $nama,
-            'email_cs' => $email,
-            'no_cs' => $no,
-            'password_cs' => $password
+            'username' => $username,
+            'nama' => $nama,
+            'email' => $email,
+            'nomor_hp' => $no,
+            'password' => $password
         ];
-        $this->M_auth->register('data_customer', $data);
+        $this->M_auth->register('user', $data);
         redirect(base_url('home/'));
     }
     function logout()
