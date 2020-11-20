@@ -11,22 +11,29 @@
 
 <body>
 
-    <form id="payment-form" method="post" action="<?= site_url() ?>/snap/finish">
+    <form id="payment-form" method="post" action="<?= base_url('Checkout/insert') ?>">
         <input type="hidden" name="result_type" id="result-type" value=""></div>
         <input type="hidden" name="result_data" id="result-data" value=""></div>
+        <input type="hidden" name="kabupaten" value="<?= $this->input->post('nama_kabupaten') ?>" id="kabupaten">
+        <input type="hidden" name="kodepos" value="<?= $this->input->post('kodepos') ?>" id="kodepos">
+        <input type="hidden" name="alamat" value="<?= $this->input->post('alamat') ?>" id="alamat">
+        <input type="text" name="pengiriman" id="pengiriman" value="<?= $this->input->post('pengiriman') ?>">
     </form>
-    <input type="text" name="kabupaten" value="<?= $this->input->post('nama_kabupaten') ?>" id="kabupaten">
-    <input type="text" name="kodepos" value="<?= $this->input->post('kodepos') ?>" id="kodepos">
-    <input type="text" name="alamat" value="<?= $this->input->post('alamat') ?>" id="alamat">
+
 
     <script type="text/javascript">
         // For example trigger on button clicked, or any time you need
         $(document).ready(function() {
             var kabupaten = $("#kabupaten").val();
             var kodepos = $("#kodepos").val();
-            var alamat = $("#alamat").val();
+            var pengiriman = $("#pengiriman").val();
+            console.log(pengiriman);
             $.ajax({
+                type: "POST",
                 url: '<?= site_url() ?>/snap/token',
+                data: {
+                    pengiriman: pengiriman
+                },
                 cache: false,
 
                 success: function(data) {
@@ -34,15 +41,15 @@
 
                     console.log('token = ' + data);
 
-                    // var resultType = document.getElementById('result-type');
-                    // var resultData = document.getElementById('result-data');
+                    var resultType = document.getElementById('result-type');
+                    var resultData = document.getElementById('result-data');
 
-                    // function changeResult(type, data) {
-                    //     $("#result-type").val(type);
-                    //     $("#result-data").val(JSON.stringify(data));
-                    //     //resultType.innerHTML = type;
-                    //     //resultData.innerHTML = JSON.stringify(data);
-                    // }
+                    function changeResult(type, data) {
+                        $("#result-type").val(type);
+                        $("#result-data").val(JSON.stringify(data));
+                        //     //resultType.innerHTML = type;
+                        //     //resultData.innerHTML = JSON.stringify(data);
+                    }
 
                     snap.pay(data, {
 

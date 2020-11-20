@@ -31,7 +31,7 @@ class Snap extends CI_Controller
         // Required
         $transaction_details = array(
             'order_id' => rand(),
-            'gross_amount' => $total, // no decimal allowed for creditcard
+            'gross_amount' => $total + $this->input->post('pengiriman'), // no decimal allowed for creditcard
         );
         $data['keranjang'] = [];
         foreach ($data['cart'] as $a) {
@@ -43,8 +43,14 @@ class Snap extends CI_Controller
 
             ];
         }
+        $item2_details = array(
+            'id' => 'a2',
+            'price' => 20000,
+            'quantity' => 2,
+            'name' => "Orange"
+        );
         // Optional
-        $item_details = $data['keranjang'];
+        $item_details = array($data['keranjang'], $item2_details);
 
         // Optional
         $billing_address = array(
@@ -88,7 +94,6 @@ class Snap extends CI_Controller
 
         $transaction_data = array(
             'transaction_details' => $transaction_details,
-            'item_details'       => $item_details,
             'customer_details'   => $customer_details,
             'credit_card'        => $credit_card,
             'expiry'             => $custom_expiry
@@ -104,7 +109,7 @@ class Snap extends CI_Controller
     {
         $result = json_decode($this->input->post('result_data'));
         echo 'RESULT <br><pre>';
-        var_dump($result);
+        print_r($result);
         echo '</pre>';
     }
 }
