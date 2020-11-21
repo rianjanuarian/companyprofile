@@ -47,7 +47,7 @@ class Profil extends CI_Controller
 
             $data = array(
                 'nama' => $nama,
-                'foto' => $foto
+                
             );
             $where = array(
                 'username' => $username
@@ -101,7 +101,7 @@ class Profil extends CI_Controller
         $this->form_validation->set_error_delimiters('<p class="alert">','</p>');
 
         if( $this->form_validation->run() == FALSE ){
-            $this->load->view('admin/profil');
+            $this->load->view('admin/Profil');
         } else {
             
             $password = $this->input->post('password');
@@ -111,7 +111,8 @@ class Profil extends CI_Controller
                 'password' => md5($password)
             );
 
-            $this->M_admin->updatedata($username, $data, 'admin');
+            $this->M_admin->updatedata('admin',['username'=>$username], $data );
+            redirect(base_url('admin/Profil'));
 
 
         }
