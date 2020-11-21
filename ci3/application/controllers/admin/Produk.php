@@ -10,10 +10,11 @@ class Produk extends CI_Controller
     }
     public function index()
     {
+        $data1['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kategori'] = $this->M_admin->getdata('kategori');
         $data['produk'] = $this->M_admin->getjoin('produk', 'kategori', 'produk.kode_kategori=kategori.kode_kategori');
         $this->load->view('admin/header');
-        $this->load->view('admin/sidebar');
+        $this->load->view('admin/sidebar',$data1);
         $this->load->view('admin/produk', $data);
         $this->load->view('admin/footer');
     }

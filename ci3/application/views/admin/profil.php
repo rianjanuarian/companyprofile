@@ -38,7 +38,7 @@
                             <input type="text" class="form-control" name="nama" value= "<?php echo $admin['nama']?>" placeholder="Nama" >
                             <?=form_error('nama', '<small class="text-danger pl-3">', '</small>') ?>
                         </div>
-                        <div class="form-group col-12">
+                        <div class="form-group col-2">
                                     <div class="file-field">
                                         <div class="z-depth-2-half mb-3 ml-10">
                                         <img src="<?= base_url('assets/img/profil/') .$admin['foto']; ?>" class=" z-depth-1-half avatar-pic"
@@ -48,7 +48,9 @@
                                         
                                         </div>
                                     </div>
-                            <input type="file" name="foto" >
+                                   
+                                    <input type="file" name="foto" > 
+                                    
                         </div>
                        
                             <div>
