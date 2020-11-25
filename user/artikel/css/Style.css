@@ -174,9 +174,9 @@ p{
 
 /* --------------- Site title ---------------- */
 main .site-title{
-    background: url('../assets/Background-image.png');
+    background: url('../assets/keyboard.png');
     background-size: cover;
-    height: 110vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
 }
@@ -427,13 +427,15 @@ main .post-content .post-title a{
 
 footer.footer{
     height: 100%;
+    margin-left: auto;
+    margin-right: auto;
     background: var(--bg-color);
     position: relative;
 }
 
 footer.footer .container{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
 }
 
 footer.footer .container > div{

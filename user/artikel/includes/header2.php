@@ -3,10 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 
-	< <meta charset="UTF-8">
+	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blooger</title>
+    <title>Artikel</title>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="./css/all.css">
@@ -27,7 +27,7 @@
 <nav class="nav">
         <div class="nav-menu flex-row">
             <div class="nav-brand">
-                <a href="#" class="text-gray">Blooger</a>
+                <a href="artikel2.php" class="text-gray">Kentang News</a>
             </div>
             <div class="toggle-collapse">
                 <div class="toggle-icons">
@@ -37,31 +37,21 @@
             <div>
                 <ul class="nav-items">
                     <li class="nav-link">
-                        <a href="#">Home</a>
+                        <a href="http://localhost/kentangtech2/user/index.php">Home</a>
                     </li>
                     <li class="nav-link">
-                        <a href="#">Category</a>
+                        <a href="http://localhost/kentangtech2/user/login.php">Toko</a>
                     </li>
-                    <li class="nav-link">
-                        <a href="#">Archive</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">Pages</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">Contact Us</a>
-                    </li>
+              
                 </ul>
             </div>
             <div class="social text-gray">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/kentangtechmedia"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/kentangtech_aja/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UC6Q5GHSfqs8EMfYgVPXYHbQ"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </nav>
-
 
 
 </body>

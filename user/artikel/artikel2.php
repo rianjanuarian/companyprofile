@@ -32,43 +32,7 @@ include('includes/config.php');
 
     <!-- ----------------------------  Navigation ---------------------------------------------- -->
 
-    <nav class="nav">
-        <div class="nav-menu flex-row">
-            <div class="nav-brand">
-                <a href="#" class="text-gray">Blooger</a>
-            </div>
-            <div class="toggle-collapse">
-                <div class="toggle-icons">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
-            <div>
-                <ul class="nav-items">
-                    <li class="nav-link">
-                        <a href="#">Home</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">Category</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">Archive</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">Pages</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">Contact Us</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="social text-gray">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    </nav>
+    <?php include('includes/header2.php');?>
 
     <!-- ------------x---------------  Navigation --------------------------x------------------- -->
 
@@ -80,9 +44,9 @@ include('includes/config.php');
 
         <section class="site-title">
             <div class="site-background" data-aos="fade-up" data-aos-delay="100">
-                <h3>Tours & Travels</h3>
-                <h1>Amazing Place on Earth</h1>
-                <button class="btn">Explore</button>
+                <h3>Kentang Artikel</h3>
+                <h1>Berita Seputar Teknologi</h1>
+                
             </div>
         </section>
 
@@ -126,7 +90,7 @@ include('includes/config.php');
                             
                             <div>
                                 
-                                <img  src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>"width="700" height="300">
+                                <img src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>" class="img" alt="blog1" width="950" height="450">
                             </div>
                             <div class="post-info flex-row">
                                 <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Admin</span>
@@ -138,7 +102,7 @@ include('includes/config.php');
                         <h2 class="card-title"><?php echo htmlentities($row['posttitle']);?></h2>
                         <p class="card-text"><?php $pt=$row['postdetails'];echo  (substr($pt,0,500));?></p>
              </p>
-                        <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></a>
+                        <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" class="btn post-btn">Selengkapnya &nbsp; <i class="fas fa-arrow-right"></i></a>
                             
                            
                      
@@ -161,8 +125,36 @@ include('includes/config.php');
                 </div>
                 
                 <aside class="sidebar">
+                <div class="newsletter" data-aos="fade-up" data-aos-delay="300">
+                        <h2>Cari</h2>
+                        <div class="form-element">
+                        <form name="search" action="search.php" method="post">
+                            <div class="input-group">
+
+                           
+                            <input type="text" class="input-element" name="searchtitle" placeholder="Artikel">
+                            <span class="input-group-btn">
+                            <button class="btn form-btn" type="submit">Cari</button>
+                            </span>
+                        </div>
+                        </div>
+                    </div>
+                   <!-- <div class="card mb-4">
+            <h5 class="card-header">Search</h5>
+            <div class="card-body">
+                   <form name="search" action="search.php" method="post">
+              <div class="input-group">
+           
+        <input type="text" name="searchtitle" class="form-control" placeholder="Search for..." required>
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="submit">Go!</button>
+                </span>
+              </form>
+              </div>
+            </div>
+          </div> -->
                     <div class="category">
-                        <h2>Category</h2>
+                        <h2>Kategori</h2>
                         <ul class="category-list">
                         <?php $query=mysqli_query($con,"select id,CategoryName from tblcategory");
 while($row=mysqli_fetch_array($query))
@@ -176,27 +168,23 @@ while($row=mysqli_fetch_array($query))
                            
                         </ul>
                     </div>
-                
-                    <div class="newsletter" data-aos="fade-up" data-aos-delay="300">
-                        <h2>Newsletter</h2>
-                        <div class="form-element">
-                            <input type="text" class="input-element" placeholder="Email">
-                            <button class="btn form-btn">Subscribe</button>
+                   
+                    <div class="popular-post">
+                        <h2>Artikel Terbaru</h2>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="200">
+                        <?php
+$query=mysqli_query($con,"select tblposts.id as pid,tblposts.PostTitle as posttitle from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join  tblsubcategory on  tblsubcategory.SubCategoryId=tblposts.SubCategoryId limit 8");
+while ($row=mysqli_fetch_array($query)) {
+
+?>
+                            <div class="post-title">
+                            - <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>"><?php echo htmlentities($row['posttitle']);?></a>
+                            </div>
+                            <?php } ?>
                         </div>
-                    </div>
-                    <div class="popular-tags">
-                        <h2>Popular Tags</h2>
-                        <div class="tags flex-row">
-                            <span class="tag" data-aos="flip-up" data-aos-delay="100">Software</span>
-                            <span class="tag" data-aos="flip-up" data-aos-delay="200">technology</span>
-                            <span class="tag" data-aos="flip-up" data-aos-delay="300">travel</span>
-                            <span class="tag" data-aos="flip-up" data-aos-delay="400">illustration</span>
-                            <span class="tag" data-aos="flip-up" data-aos-delay="500">design</span>
-                            <span class="tag" data-aos="flip-up" data-aos-delay="600">lifestyle</span>
-                            <span class="tag" data-aos="flip-up" data-aos-delay="700">love</span>
-                            <span class="tag" data-aos="flip-up" data-aos-delay="800">project</span>
-                        </div>
-                    </div>
+</div>
+                   
+               
                 </aside>
             </div>
            
@@ -210,56 +198,7 @@ while($row=mysqli_fetch_array($query))
 
 
     <!-- --------------------------- Footer ---------------------------------------- -->
-
-    <footer class="footer">
-        <div class="container">
-            <div class="about-us" data-aos="fade-right" data-aos-delay="200">
-                <h2>About us</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia atque nemo ad modi officiis
-                    iure, autem nulla tenetur repellendus.</p>
-            </div>
-            <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
-                <h2>Newsletter</h2>
-                <p>Stay update with our latest</p>
-                <div class="form-element">
-                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
-                </div>
-            </div>
-            <div class="instagram" data-aos="fade-left" data-aos-delay="200">
-                <h2>Instagram</h2>
-                <div class="flex-row">
-                    <img src="./assets/instagram/thumb-card3.png" alt="insta1">
-                    <img src="./assets/instagram/thumb-card4.png" alt="insta2">
-                    <img src="./assets/instagram/thumb-card5.png" alt="insta3">
-                </div>
-                <div class="flex-row">
-                    <img src="./assets/instagram/thumb-card6.png" alt="insta4">
-                    <img src="./assets/instagram/thumb-card7.png" alt="insta5">
-                    <img src="./assets/instagram/thumb-card8.png" alt="insta6">
-                </div>
-            </div>
-            <div class="follow" data-aos="fade-left" data-aos-delay="200">
-                <h2>Follow us</h2>
-                <p>Let us be Social</p>
-                <div>
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-youtube"></i>
-                </div>
-            </div>
-        </div>
-        <div class="rights flex-row">
-            <h4 class="text-gray">
-                Copyright ©2019 All rights reserved | made by
-                <a href="www.youtube.com/c/dailytuition" target="_black">Daily Tuition <i class="fab fa-youtube"></i>
-                    Channel</a>
-            </h4>
-        </div>
-        <div class="move-up">
-            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
-        </div>
-    </footer>
+    <?php include('includes/footer2.php');?>
 
     <!-- -------------x------------- Footer --------------------x------------------- -->
 
