@@ -43,7 +43,7 @@ include('includes/config.php');
       <div class="row" style="margin-top: 4%">
 
         <!-- Blog Entries Column -->
-        <div class="col-md-8">
+        <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
 
           <!-- Blog Post -->
 <?php 
@@ -84,31 +84,35 @@ while ($row=mysqli_fetch_array($query)) {
 
 
 ?>
-<h1><?php echo htmlentities($row['category']);?> News</h1>
-          <div class="card mb-4">
-       <img class="card-img-top" src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>">
+<h1>Kategori <?php echo htmlentities($row['category']);?> </h1>
+<div class="post-image">
+                            
+                            <div>
+                                <img src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>" class="img" alt="blog1" width="950" height="350">
+                            </div>
             <div class="card-body">
-              <h2 class="card-title"><?php echo htmlentities($row['posttitle']);?></h2>
-           
-              <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" class="btn btn-primary">Read More &rarr;</a>
+            <div class="post-info flex-row">
+                                <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Admin</span>
+                                <span><i class="fas fa-calendar-alt text-gray"></i> Posted on <?php echo htmlentities($row['postingdate']);?></span>
+                                
+                            </div>
             </div>
-            <div class="card-footer text-muted">
-              Posted on <?php echo htmlentities($row['postingdate']);?>
-           
-            </div>
-          </div>
-<?php } ?>
+                        <div class="post-title">
+                        <h2 class="card-title"><?php echo htmlentities($row['posttitle']);?></h2>
+                        <p class="card-text"><?php $pt=$row['postdetails'];echo  (substr($pt,0,500));?></p>
+             </p>
+                        <a href="news-details2.php?nid=<?php echo htmlentities($row['pid'])?>" class="btn post-btn">Selengkapnya &nbsp; <i class="fas fa-arrow-right"></i></a>
+                            
+                           
+                     
+                   
+                        </div>
+                        <hr>
+                    </div>
+                    
+                    <?php } ?>
 
-    <ul class="pagination justify-content-center mb-4">
-        <li class="page-item"><a href="?pageno=1"  class="page-link">First</a></li>
-        <li class="<?php if($pageno <= 1){ echo 'disabled'; } ?> page-item">
-            <a href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>" class="page-link">Prev</a>
-        </li>
-        <li class="<?php if($pageno >= $total_pages){ echo 'disabled'; } ?> page-item">
-            <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?> " class="page-link">Next</a>
-        </li>
-        <li class="page-item"><a href="?pageno=<?php echo $total_pages; ?>" class="page-link">Last</a></li>
-    </ul>
+  
 <?php } ?>
        
 
@@ -122,7 +126,7 @@ while ($row=mysqli_fetch_array($query)) {
         </div>
 
         <!-- Sidebar Widgets Column -->
-      <?php include('includes/sidebar.php');?>
+     
       </div>
       <!-- /.row -->
 

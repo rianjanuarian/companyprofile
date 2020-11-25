@@ -60,7 +60,7 @@ include('includes/config.php');
 
         <!-- ---------------------- Site Content -------------------------->
 
-        <section class="container">
+        <section class="container-float">
      
             <div class="site-content">
                 

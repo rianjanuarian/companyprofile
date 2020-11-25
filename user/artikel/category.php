@@ -45,13 +45,6 @@ include('includes/config.php');
         if($_GET['catid']!=''){
 $_SESSION['catid']=intval($_GET['catid']);
 }
-             
-
-
-
-
-
-
      if (isset($_GET['pageno'])) {
             $pageno = $_GET['pageno'];
         } else {
