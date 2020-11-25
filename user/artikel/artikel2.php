@@ -170,7 +170,6 @@ while($row=mysqli_fetch_array($query))
                            
                         </ul>
                     </div>
-                   
                     <div class="popular-post">
                         <h2>Artikel Terbaru</h2>
                         <div class="post-content" data-aos="flip-up" data-aos-delay="200">

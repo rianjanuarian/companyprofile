@@ -213,6 +213,7 @@ main .blog{
     height: 100vh;
     width: 100%;
     background-size: 65%;
+    display: none;
 }
 
 main .blog .blog-post{
