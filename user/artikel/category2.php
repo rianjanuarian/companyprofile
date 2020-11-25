@@ -8,27 +8,32 @@ include('includes/config.php');
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Artikel</title>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="./css/all.css">
 
-    <title>News Portal | Category  Page</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- --------- Owl-Carousel ------------------->
+    <link rel="stylesheet" href="./css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./css/owl.theme.default.min.css">
 
-    <!-- Custom styles for this template -->
-    <link href="css/modern-business.css" rel="stylesheet">
+    <!-- ------------ AOS Library ------------------------- -->
+    <link rel="stylesheet" href="./css/aos.css">
 
-  </head>
+    <!-- Custom Style   -->
+    <link rel="stylesheet" href="./css/Style.css">
+
+</head>
 
   <body>
 
     <!-- Navigation -->
-   <?php include('includes/header.php');?>
+   <?php include('includes/header2.php');?>
 
     <!-- Page Content -->
     <div class="container">
@@ -125,13 +130,19 @@ while ($row=mysqli_fetch_array($query)) {
     <!-- /.container -->
 
     <!-- Footer -->
-      <?php include('includes/footer.php');?>
+      <?php include('includes/footer2.php');?>
 
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="./js/Jquery3.4.1.min.js"></script>
 
+<!-- --------- Owl-Carousel js ------------------->
+<script src="./js/owl.carousel.min.js"></script>
+
+<!-- ------------ AOS js Library  ------------------------- -->
+<script src="./js/aos.js"></script>
+
+<!-- Custom Javascript file -->
+<script src="./js/main.js"></script>
  
 </head>
   </body>

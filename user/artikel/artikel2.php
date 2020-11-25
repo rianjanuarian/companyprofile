@@ -163,7 +163,7 @@ while($row=mysqli_fetch_array($query))
 {
 ?>
                             <li class="list-items" data-aos="fade-left" data-aos-delay="100">
-                            <a href="category.php?catid=<?php echo htmlentities($row['id'])?>"><?php echo htmlentities($row['CategoryName']);?></a>
+                            <a href="category2.php?catid=<?php echo htmlentities($row['id'])?>"><?php echo htmlentities($row['CategoryName']);?></a>
                              
                             </li>
                             <?php } ?>
@@ -179,7 +179,7 @@ while ($row=mysqli_fetch_array($query)) {
 
 ?>
                             <div class="post-title">
-                            - <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>"><?php echo htmlentities($row['posttitle']);?></a>
+                            - <a href="news-details2.php?nid=<?php echo htmlentities($row['pid'])?>"><?php echo htmlentities($row['posttitle']);?></a>
                             </div>
                             <?php } ?>
                         </div>
