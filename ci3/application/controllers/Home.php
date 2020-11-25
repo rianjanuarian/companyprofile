@@ -9,14 +9,7 @@ class Home extends CI_Controller
 		$this->load->view('user/index');
 	}
 
-	public function toko()
-	{
-		$data['user'] = $this->db->get_where('user', [
-			'username' => $this->session->userdata('username')])->row_array();
-		
-		$this->load->view('user/toko');
-
-	}
+	
 
 	public function register()
 	{

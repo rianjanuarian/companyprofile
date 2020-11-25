@@ -27,6 +27,7 @@
     <link href="<?= base_url('assets/bizpage/') ?>assets/vendor/venobox/venobox.css" rel="stylesheet">
     <link href="<?= base_url('assets/bizpage/') ?>assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/bizpage/') ?>assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="<?= base_url('assets/bizpage/') ?>assets/css/profil.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <!-- Template Main CSS File -->
     <link href="<?= base_url('assets/bizpage/') ?>assets/css/style.css" rel="stylesheet">
