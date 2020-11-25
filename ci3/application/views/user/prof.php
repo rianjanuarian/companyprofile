@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                        <img src="<?= base_url('assets/img/profil/') . $profil['foto']; ?>" alt=""/>
                             
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                                                 <label>Username</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?= $this->session->userdata('username'); ?></p>
+                                                <p><?= $profil['username']; ?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -49,7 +49,7 @@
                                                 <label>Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?= $this->session->userdata('nama'); ?></p>
+                                                <p><?= $profil['nama']; ?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -57,7 +57,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?= $this->session->userdata('email'); ?></p>
+                                                <p><?= $profil['email']; ?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -65,7 +65,7 @@
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?= $this->session->userdata('nomor_hp'); ?></p>
+                                                <p><?= $profil['nomor_hp']; ?></p>
                                             </div>
                                         </div>
                                         
