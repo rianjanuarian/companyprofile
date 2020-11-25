@@ -102,7 +102,7 @@ include('includes/config.php');
                         <h2 class="card-title"><?php echo htmlentities($row['posttitle']);?></h2>
                         <p class="card-text"><?php $pt=$row['postdetails'];echo  (substr($pt,0,500));?></p>
              </p>
-                        <a href="news-details.php?nid=<?php echo htmlentities($row['pid'])?>" class="btn post-btn">Selengkapnya &nbsp; <i class="fas fa-arrow-right"></i></a>
+                        <a href="news-details2.php?nid=<?php echo htmlentities($row['pid'])?>" class="btn post-btn">Selengkapnya &nbsp; <i class="fas fa-arrow-right"></i></a>
                             
                            
                      
