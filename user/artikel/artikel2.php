@@ -10,7 +10,7 @@ include('includes/config.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blooger</title>
+    <title>Artikel</title>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="./css/all.css">
@@ -90,7 +90,7 @@ include('includes/config.php');
                             
                             <div>
                                 
-                                <img src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>" class="img" alt="blog1" width="950" height="450">
+                                <img src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>" class="img" alt="blog1" width="950" height="350">
                             </div>
                             <div class="post-info flex-row">
                                 <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Admin</span>
@@ -108,9 +108,11 @@ include('includes/config.php');
                      
                    
                         </div>
-                      
+                        <hr>
                     </div>
+                    
                     <?php } ?>
+                    
                     <div class="pagination flex-row">
                     <li class="page-item"><a href="?pageno=1"  class="page-link">First</a></li>
                               <li class="<?php if($pageno <= 1){ echo 'disabled'; } ?> page-item">
