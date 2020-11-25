@@ -112,4 +112,9 @@ class Snap extends CI_Controller
         print_r($result);
         echo '</pre>';
     }
+    public function status($id)
+    {
+        echo 'test get status </br>';
+        print_r($this->midtrans->status($id));
+    }
 }

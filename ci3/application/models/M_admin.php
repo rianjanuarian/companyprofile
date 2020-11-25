@@ -1,5 +1,5 @@
 <?php
-class M_admin extends CI_Model 
+class M_admin extends CI_Model
 {
     function getdata($tabel)
     {
@@ -40,5 +40,9 @@ class M_admin extends CI_Model
     function search($tabel, $column, $keyword)
     {
         return $this->db->like($column, $keyword)->get($tabel)->result();
+    }
+    function transaksi($tabel, $where)
+    {
+        return $this->db->get_where($tabel, $where)->result();
     }
 }

@@ -62,8 +62,13 @@
                             <?php if ($this->session->userdata('username') != '') { ?>
                                 <li class="drop-down"><a href=""><?= $this->session->userdata('username'); ?></a>
                                     <ul>
+<<<<<<< Updated upstream
                                         <li><a href="<?= base_url('Profil') ?>">Profil</a></li>
                                         <li><a href="#">History</a></li>
+=======
+                                        <li><a href="#">Profil</a></li>
+                                        <li><a href="<?= base_url('History') ?>">History</a></li>
+>>>>>>> Stashed changes
                                         <li><a href="#">Order</a></li>
                                         <li><a href="<?= base_url('Cart') ?>">Keranjang</a></li>
                                         <li><a href="<?= base_url('Auth/logout') ?>">Logout</a></li>

@@ -151,7 +151,7 @@
                 success: function(data) {
                     var results = data["rajaongkir"]["results"];
                     // console.log(results);
-                    for (var i = 0; i < results.length; i++) {
+                    for (i = 0; i < results.length; i++) {
                         $("#kabupaten").append($('<option>', {
                             value: results[i]["city_id"],
                             text: results[i]["city_name"]

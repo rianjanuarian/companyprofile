@@ -67,13 +67,10 @@
 				<!--************************************ AKHIR REGISTER *******************************-->
 
 				<!-- ************************ LOGIN **************************************-->
-
-				<?= $this->session->flashdata('message') ?>
-
 				<form method="post" action="<?= base_url('auth') ?>">
 					<h1>Login</h1>
 					</br>
-
+					<p><?= $this->session->flashdata('gagal') ?></p>
 					<input type="text" name="username" placeholder="Username" <?= set_value('username') ?> />
 					<?= form_error('username', '<small class="text-danger pl-2">', '</small>'); ?>
 					<input type="password" name="password" placeholder="Password" />

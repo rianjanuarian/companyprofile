@@ -15,90 +15,47 @@
                         </a>
                     </div>
                 </nav>
-                <div class="tab-content" id="nav-tabContent">
+                <div class="tab-content mb-5" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <table class="table" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Project Name</th>
-                                    <th>Employer</th>
-                                    <th>Awards</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href="#">Work 1</a></td>
-                                    <td>Doe</td>
-                                    <td>john@example.com</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">Work 2</a></td>
-                                    <td>Moe</td>
-                                    <td>mary@example.com</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">Work 3</a></td>
-                                    <td>Dooley</td>
-                                    <td>july@example.com</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <?php foreach ($proses as $prs) { ?>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $prs->kode_penjualan; ?></h5>
+                                    Nama Penerima : <?= $prs->username; ?> <br>
+                                    Alamat : <?= $prs->alamat; ?>,<?= $prs->kabupaten; ?><br>
+                                    Kode Pos : <?= $prs->kode_pos; ?>
+                                    <br> Total :<?= $prs->total; ?>
+                                    <a href="#" class="float-right">Detail</a>
+                                </div>
+                            </div>
+                        <?php } ?>
                     </div>
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <table class="table" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Project Name</th>
-                                    <th>Employer</th>
-                                    <th>Time</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href="#">Work 1</a></td>
-                                    <td>Doe</td>
-                                    <td>john@example.com</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">Work 2</a></td>
-                                    <td>Moe</td>
-                                    <td>mary@example.com</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">Work 3</a></td>
-                                    <td>Dooley</td>
-                                    <td>july@example.com</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="tab-pane fade mb-5" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <?php foreach ($gagal as $ggl) { ?>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $ggl->kode_penjualan; ?></h5>
+                                    Nama Penerima : <?= $ggl->username; ?> <br>
+                                    Alamat : <?= $ggl->alamat; ?>,<?= $ggl->kabupaten; ?><br>
+                                    Kode Pos : <?= $ggl->kode_pos; ?>
+                                    <br> Total :<?= $ggl->total; ?>
+                                </div>
+                            </div>
+                        <?php } ?>
                     </div>
-                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                        <table class="table" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Contest Name</th>
-                                    <th>Date</th>
-                                    <th>Award Position</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href="#">Work 1</a></td>
-                                    <td>Doe</td>
-                                    <td>john@example.com</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">Work 2</a></td>
-                                    <td>Moe</td>
-                                    <td>mary@example.com</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">Work 3</a></td>
-                                    <td>Dooley</td>
-                                    <td>july@example.com</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="tab-pane fade mb-5" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        <?php foreach ($selesai as $sls) { ?>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $sls->kode_penjualan; ?></h5>
+                                    Nama Penerima : <?= $sls->username; ?> <br>
+                                    Alamat : <?= $sls->alamat; ?>,<?= $sls->kabupaten; ?><br>
+                                    Kode Pos : <?= $sls->kode_pos; ?>
+                                    <br> Total :<?= $sls->total; ?>
+                                    <a href="#"></a>
+                                </div>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
