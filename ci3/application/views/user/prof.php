@@ -12,10 +12,10 @@
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                    <?= $this->session->userdata('nama'); ?>
+                                    <?= $profil['nama']; ?>
                                     </h5>
                                     <h6>
-                                    <?= $this->session->userdata('email'); ?>
+                                    <?= $profil['email']; ?>
                                     </h6>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
