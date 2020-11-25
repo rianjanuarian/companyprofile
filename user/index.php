@@ -29,7 +29,7 @@
       <p>Channel Youtube Kentang Tech</p>
         </div>
         <div>
-      <a href="artikel.php">  <i class="fa fa-chalkboard-teacher fa-3x" aria-hidden="true"></i> </a>
+      <a href="artikel/artikel.php">  <i class="fa fa-chalkboard-teacher fa-3x" aria-hidden="true"></i> </a>
         <h3>Artikel</h3>
         <p> Artikel Seputar Teknologi </p>
         </div>
