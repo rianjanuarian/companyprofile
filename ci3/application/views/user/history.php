@@ -25,7 +25,7 @@
                                     Alamat : <?= $prs->alamat; ?>,<?= $prs->kabupaten; ?><br>
                                     Kode Pos : <?= $prs->kode_pos; ?>
                                     <br> Total :<?= $prs->total; ?>
-                                    <a href="#" class="float-right">Detail</a>
+                                    <a href="<?= base_url('History/detail/') . $prs->kode_penjualan; ?>" class="float-right">Detail</a>
                                 </div>
                             </div>
                         <?php } ?>
