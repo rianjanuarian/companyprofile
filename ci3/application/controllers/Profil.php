@@ -75,6 +75,46 @@ class Profil extends CI_Controller
         redirect('profil');
     }
     }
+    public function ganti_password()
+    {
+        $data['profil'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        
+        $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
+        $this->form_validation->set_rules('password1', 'New Password', 'required|trim|min_length[6]|matches[password2]');
+        $this->form_validation->set_rules('password2', 'New Password', 'required|trim|min_length[6]|matches[password1]');
+        
+
+        if($this->form_validation->run() == false){
+            $this->load->view('user/header', $data);
+            $this->load->view('user/changepass', $data);
+            $this->load->view('user/footer');
+            
+        }else{
+            $current_password = $this->input->post('current_password');
+            $lol = array(
+                'password' =>md5($current_password)
+            );
+            $new_password = $this->input->post('password1');
+            if(!password_verify($current_password, $data['profil']['password'])){
+                $this->session->set_flashdata('message', '<div class="alert alert-error" role=""alert>Current Password Wrong</div>');
+                redirect('profil/ganti_password');
+            }else{
+                if($current_password == $new_password){
+                    $this->session->set_flashdata('message', '<div class="alert alert-error" role=""alert>New password cannot matches with old password</div>');
+                    redirect('profil/ganti_password');
+                }else{
+                    $password_hash = md5($new_password);
+
+                    $this->db->where('username', $this->session->userdata('username'));
+                    $this->db->set('password', $password_hash);
+                    $this->db->update('user');
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role=""alert>Password Telah di Ubah</div>');
+                    redirect('profil');
+                }
+            }
+        }
+            
+    }
     
 
 }

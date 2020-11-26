@@ -10,6 +10,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
+                    <?= $this->session->flashdata('message'); ?>
                         <div class="profile-head">
                                     <h5>
                                     <?= $profil['nama']; ?>

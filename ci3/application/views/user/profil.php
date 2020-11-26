@@ -21,6 +21,7 @@
           <!-- Grid column -->
           <div class="col-md-6">
             <!-- Material input -->
+            <?= $this->session->flashdata('message'); ?>
             <div class="md-form form-group">
               <label for="username">username</label>
               <input type="text" class="form-control" id="username" value="<?= $profil[0]->username; ?>" name="username" readonly>
