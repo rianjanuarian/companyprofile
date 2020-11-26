@@ -90,7 +90,7 @@ include('includes/config.php');
                             
                             <div>
                                 
-                                <img src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>" class="img" alt="blog1" width="950" height="350">
+                                <img src="admin/postimages/<?php echo htmlentities($row['PostImage']);?>" alt="<?php echo htmlentities($row['posttitle']);?>" class="img" alt="blog1" width="700" height="600" >
                             </div>
                             <div class="post-info flex-row">
                                 <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Admin</span>

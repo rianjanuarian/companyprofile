@@ -42,6 +42,9 @@
                     <li class="nav-link">
                         <a href="http://localhost/kentangtech2/user/login.php">Toko</a>
                     </li>
+                    <li class="nav-link">
+                        <a href="http://localhost/kentangtech2/user/artikel2.php">Berita</a>
+                    </li>
               
                 </ul>
             </div>

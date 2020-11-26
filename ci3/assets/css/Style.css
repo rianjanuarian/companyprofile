@@ -11,7 +11,7 @@ html, body{
 :root{
 
     /*      Theme colors        */
-    --text-gray: #ffffff;
+    --text-gray: #3f4954;
     --text-light : #686666da;
     --bg-color: #0f0f0f;
     --white: #ffffff;
@@ -91,7 +91,7 @@ p{
 /* --------------- navbar ----------------- */
 
 .nav{
-    background: rgb(8, 8, 8);
+    background: rgb(7, 6, 6);
     padding: 0 2rem;
     height: 0rem;
     min-height: 10vh;
@@ -174,9 +174,9 @@ p{
 
 /* --------------- Site title ---------------- */
 main .site-title{
-    background: url('../assets/keyboard.png');
+    background: url('../assets/Background-image.png');
     background-size: cover;
-    height: 80vh;
+    height: 110vh;
     display: flex;
     justify-content: center;
 }
@@ -213,7 +213,6 @@ main .blog{
     height: 100vh;
     width: 100%;
     background-size: 65%;
-    display: none;
 }
 
 main .blog .blog-post{
@@ -301,7 +300,6 @@ main .site-content .post-content > .post-image > div{
 
 main .site-content .post-content > .post-image .img{
     width: 100%;
-    
     transition: all 1s ease;
 }
 
@@ -429,15 +427,13 @@ main .post-content .post-title a{
 
 footer.footer{
     height: 100%;
-    margin-left: auto;
-    margin-right: auto;
     background: var(--bg-color);
     position: relative;
 }
 
 footer.footer .container{
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 }
 
 footer.footer .container > div{
