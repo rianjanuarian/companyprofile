@@ -11,10 +11,10 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-      <img src="<?= base_url('assets/img/profil/'). $admin['foto'];?>" class="img-circle elevation-2" alt="User Image">
+        <img src="<?= base_url('assets/img/profil/') . $admin['foto']; ?>" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-      <a href="<?= base_url('admin/Profil')?>" class="d-block"><?php echo $this->session->userdata('username');?></a>
+        <a href="<?= base_url('admin/Profil') ?>" class="d-block"><?php echo $this->session->userdata('username'); ?></a>
       </div>
     </div>
 
@@ -52,7 +52,7 @@
             </p>
           </a>
         </li>
-        <li class="nav-header">Master</li>
+        <li class="nav-header">E-Commerce</li>
         <li class="nav-item ">
           <a href="<?= base_url('admin/produk') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'produk') {
                                                                       echo 'active';
@@ -80,12 +80,57 @@
             </p>
           </a>
         </li>
-  
-        <li class="nav-header">MISCELLANEOUS</li>
+
+        <li class="nav-header">Artikel</li>
         <li class="nav-item">
-          <a href="https://adminlte.io/docs/3.0" class="nav-link">
-            <i class="nav-icon fas fa-file"></i>
-            <p>Documentation</p>
+          <a href="<?= base_url('admin/KategoriArtikel') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'KategoriArtikel') {
+                                                                                echo 'active';
+                                                                              } ?>">
+            <i class="nav-icon fas fa-list"></i>
+            <p>Kategori</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="<?= base_url('admin/Subkategori') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'Subkategori') {
+                                                                            echo 'active';
+                                                                          } ?>">
+            <i class="nav-icon fas fa-list"></i>
+            <p>Sub Kategori</p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="far fa-newspaper nav-icon"></i>
+            <p>
+              Artikel
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="far fa-plus-square nav-icon"></i>
+                <p>Post</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-clipboard-list nav-icon"></i>
+                <p>Manajemen Artikel</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="far fa-dot-circle nav-icon"></i>
+                <p>Level 3</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="<?= base_url('admin/produk') ?>" class="nav-link">
+            <i class="nav-icon fas fa-list"></i>
+            <p>Kategori</p>
           </a>
         </li>
         <li class="nav-header">MULTI LEVEL EXAMPLE</li>
