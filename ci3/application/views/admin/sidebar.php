@@ -108,30 +108,53 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?= base_url('admin/Artikel/post') ?>" class="nav-link">
                 <i class="far fa-plus-square nav-icon"></i>
                 <p>Post</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?= base_url('admin/Artikel') ?>" class="nav-link">
                 <i class="fas fa-clipboard-list nav-icon"></i>
                 <p>Manajemen Artikel</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="far fa-dot-circle nav-icon"></i>
-                <p>Level 3</p>
+                <i class="fas fa-trash-alt nav-icon"></i>
+                <p>Sampah Artikel</p>
               </a>
             </li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a href="<?= base_url('admin/produk') ?>" class="nav-link">
-            <i class="nav-icon fas fa-list"></i>
-            <p>Kategori</p>
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="far fa-comments nav-icon"></i>
+            <p>
+              Komen
+              <i class="right fas fa-angle-left"></i>
+            </p>
           </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?= base_url('admin/Komen/') ?>" class="nav-link">
+                <i class="p-3"></i>
+                <p>Pengajuan Komen</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= base_url('admin/Komen') ?>" class="nav-link">
+                <i class="p-3"></i>
+                <p>Manajemen Komen</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="p-3"></i>
+                <p>Sampah Artikel</p>
+              </a>
+            </li>
+          </ul>
         </li>
         <li class="nav-header">MULTI LEVEL EXAMPLE</li>
         <li class="nav-item">

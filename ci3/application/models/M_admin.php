@@ -9,6 +9,10 @@ class M_admin extends CI_Model
     {
         return $this->db->from($tabel)->join($tabel1, $join)->get()->result();
     }
+    function showartikel($tabel, $tabel1, $tabel2, $join, $join1)
+    {
+        return $this->db->from($tabel)->join($tabel1, $join)->join($tabel2, $join1)->get()->result();
+    }
     function getjoinfilter($tabel, $tabel1, $join, $where)
     {
         return $this->db->from($tabel)->join($tabel1, $join)->where($where)->get()->result();
