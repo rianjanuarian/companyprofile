@@ -44,7 +44,7 @@
                                     <?php foreach ($produk as $index => $a) { ?>
                                         <tr>
                                             <td><?= $index + 1; ?></td>
-                                            <td><img src="<?= base_url('img/') . $a->foto_produk; ?>" style="max-width: 10rem;" alt="foto_produk"></td>
+                                            <td><img src="<?= base_url('img/') . $a->foto; ?>" style="max-width: 10rem;" alt="foto_produk"></td>
                                             <td><?= $a->nama_produk; ?></td>
                                             <td><?= $a->nama_kategori; ?></td>
                                             <td><?= $a->merk; ?></td>

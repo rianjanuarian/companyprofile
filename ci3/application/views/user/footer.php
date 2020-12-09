@@ -1,7 +1,7 @@
 <!-- ======= Footer ======= -->
 <footer id="footer">
-    <div class="footer-top">
-        <div class="container">
+    <!-- <div class="footer-top"> -->
+    <!-- <div class="container">
             <div class="row">
 
                 <div class="col-lg-3 col-md-6 footer-info">
@@ -50,11 +50,11 @@
 
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <div class="container">
+    <div class="container d-block">
         <div class="copyright">
-            &copy; Copyright <strong>BizPage</strong>. All Rights Reserved
+            &copy; Copyright <strong>Kentang Tech</strong>
         </div>
         <div class="credits">
             <!--
@@ -71,7 +71,6 @@
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 <!-- Uncomment below i you want to use a preloader -->
 <!-- <div id="preloader"></div> -->
-
 <!-- Vendor JS Files -->
 <script src="<?= base_url('assets/bizpage/') ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?= base_url('assets/bizpage/') ?>assets/vendor/jquery.easing/jquery.easing.min.js"></script>

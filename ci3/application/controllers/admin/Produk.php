@@ -14,7 +14,7 @@ class Produk extends CI_Controller
         $data['kategori'] = $this->M_admin->getdata('kategori');
         $data['produk'] = $this->M_admin->getjoin('produk', 'kategori', 'produk.kode_kategori=kategori.kode_kategori');
         $this->load->view('admin/header');
-        $this->load->view('admin/sidebar',$data1);
+        $this->load->view('admin/sidebar', $data1);
         $this->load->view('admin/produk', $data);
         $this->load->view('admin/footer');
     }
@@ -52,7 +52,7 @@ class Produk extends CI_Controller
                 'merk' => $merk,
                 'stok' => $stok,
                 'harga' => $harga,
-                'foto_produk' => $file['file_name']
+                'foto' => $file['file_name']
             ];
             $this->M_admin->insertdata('produk', $data);
             $this->session->set_flashdata('flash', 'Ditambahkan');
@@ -88,7 +88,7 @@ class Produk extends CI_Controller
                     'merk' => $merk,
                     'stok' => $stok,
                     'harga' => $harga,
-                    'foto_produk' => $file['file_name']
+                    'foto' => $file['file_name']
                 ];
                 $produk = $this->M_admin->getwhere('produk', ['kode_produk' => $kode]);
                 if ($produk[0]->foto_produk != '') {

@@ -1,6 +1,6 @@
  <link rel="stylesheet" href="<?= base_url('assets/bizpage/') ?>produk.css">
  <section id="produk">
-     <div class="container" data-aos="fade-up">
+     <div class="container mb-5" data-aos="fade-up">
          <div class="row p-3">
              <div class="col-12">
                  <div class="input-group">
@@ -18,7 +18,7 @@
                  <div class="col-md-4 p-3" id="card" data-aos="fade-up" data-aos-delay="100">
                      <div class="about-col">
                          <div class="img">
-                             <img src="<?= base_url('img/') . $a->foto_produk ?>" alt="" style="height: 18rem;" class="img-thumbnail overflow-hidden">
+                             <img src="<?= base_url('img/') . $a->foto ?>" alt="" style="height: 18rem;" class="img-thumbnail overflow-hidden">
                          </div>
                          <h2 class="title text-center"><a href="#"><?= $a->nama_produk; ?></a></h2>
                          <p class="text-center">
@@ -27,11 +27,10 @@
                          <h6 class="text-center"><strong>Rp. <?= number_format($a->harga, 0, ',', '.'); ?></strong></h6>
                          <div class="col">
                              <div class="row">
-                                 <button class="form-control col-12 col-md-6" id="show">Detail</button>
                                  <?php if ($this->session->userdata('username') != '') { ?>
-                                     <button class="form-control col-12 col-md-6" data-produk="<?= $a->kode_produk ?>" data-nama="<?= $a->nama_produk ?>" data-harga="<?= $a->harga ?>" id="addcart">Add to cart</button>
+                                     <button class="form-control col-12 col-md-12" data-produk="<?= $a->kode_produk ?>" data-nama="<?= $a->nama_produk ?>" data-harga="<?= $a->harga ?>" id="addcart">Add to cart</button>
                                  <?php } else { ?>
-                                     <button class="form-control col-12 col-md-6" id="tombolcart">Add to cart</button>
+                                     <button class="form-control col-12 col-md-12" id="tombolcart">Add to cart</button>
                                  <?php } ?>
                              </div>
                          </div>
@@ -87,16 +86,15 @@
                          $('#tampil').append('<div class="col-md-4 p-3" id="card">' +
                              '<div class="about-col">' +
                              '<div class="img">' +
-                             '<img src="./img/' + data[i]['foto_produk'] + '" alt="" style="height: 18rem;" class="img-thumbnail overflow-hidden">' +
+                             '<img src="<?= base_url() ?>img/' + data[i]['foto'] + '" alt="" style="height: 18rem;" class="img-thumbnail overflow-hidden">' +
                              ' </div>' +
-                             '<h2 class="title"><a href="#">' + data[i]['nama_produk'] + '</a></h2>' +
-                             '<p>' +
-                             ' Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' +
+                             '<h2 class="title text-center"><a href="#">' + data[i]['nama_produk'] + '</a></h2>' +
+                             '<p class="text-center">' +
+                             data[i]['merk'] +
                              '</p>' +
                              '<div class="col">' +
                              '<div class="row">' +
-                             '<button class="form-control col-12 col-md-6" id="show">Detail</button>' +
-                             '<button class="form-control col-12 col-md-6" data-produk="' + data[i]['kode_produk'] + '" data-nama="' + data[i]['nama_produk'] + '" data-harga="' + data[i]['harga'] + '" id="addcart">Add to cart</button>' +
+                             '<button class="form-control col-12 col-md-12" data-produk="' + data[i]['kode_produk'] + '" data-nama="' + data[i]['nama_produk'] + '" data-harga="' + data[i]['harga'] + '" id="addcart">Add to cart</button>' +
                              '</div>' +
                              '</div>' +
                              '</div>' +

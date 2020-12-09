@@ -21,7 +21,7 @@
     <!-- Vendor CSS Files -->
     <link href="<?= base_url('assets/bizpage/') ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/bizpage/') ?>assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-    <link href="<?= base_url('assets/bizpage/') ?>assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link href="<?= base_url('assets/bizpage/') ?>assets/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/bizpage/') ?>assets/vendor/animate.css/animate.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/bizpage/') ?>assets/vendor/venobox/venobox.css" rel="stylesheet">
@@ -55,10 +55,8 @@
                     <nav class="nav-menu d-none d-lg-block">
                         <ul>
                             <li><a href="<?= base_url('Home') ?>">Home</a></li>
-                            <li><a href="">Artikel</a></li>
-                            <li><a href="#services">Services</a></li>
+                            <li><a href="<?= base_url('Artikel') ?>">Artikel</a></li>
                             <li><a href="<?= base_url('Produk') ?>">Produk</a></li>
-                            <li><a href="">Team</a></li>
                             <?php if ($this->session->userdata('username') != '') { ?>
                                 <li class="drop-down"><a href=""><?= $this->session->userdata('username'); ?></a>
                                     <ul>
