@@ -2,13 +2,11 @@
     <div class="container-fluid p-5">
         <div id="ui-view" data-select2-id="ui-view">
             <div>
-                <div class="card">
+                <div class="card" id="invoice">
                     <div class="card-header">Invoice
                         <strong><?= $penerima[0]->kode_penjualan; ?></strong>
-                        <a class="btn btn-sm btn-secondary float-right mr-1 d-print-none" href="#" onclick="javascript:window.print();" data-abc="true">
-                            <i class="fa fa-print"></i> Print</a>
-                        <a class="btn btn-sm btn-info float-right mr-1 d-print-none" href="#" data-abc="true">
-                            <i class="fa fa-save"></i> Save</a>
+                        <button class="btn btn-sm btn-secondary float-right mr-1 d-print-none" id="print" data-abc="true">
+                            <i class="fa fa-print"></i> Print</button>
                     </div>
                     <div class="card-body">
                         <div class="row mb-4">
@@ -97,3 +95,22 @@
         </div>
     </div>
 </section>
+<script>
+    $(document).ready(function() {
+        $('#print').click(function() {
+            var restorepage = document.body.innerHTML;
+            var printcontent = $('#invoice').html();
+            document.body.innerHTML = printcontent;
+            window.print();
+            document.body.innerHTML = restorepage;
+        })
+    });
+
+    function printContent(el) {
+        var restorepage = document.body.innerHTML;
+        var printcontent = document.getElementById(el).innerHTML;
+        document.body.innerHTML = printcontent;
+        window.print();
+        document.body.innerHTML = restorepage;
+    }
+</script>

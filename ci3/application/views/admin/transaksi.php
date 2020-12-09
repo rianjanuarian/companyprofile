@@ -14,6 +14,9 @@
                     </ol>
                 </div>
             </div>
+            <div class="tampil">
+                <?= $this->session->flashdata('msg'); ?>
+            </div>
         </div><!-- /.container-fluid -->
     </section>
     <section class="content">
@@ -33,6 +36,7 @@
                                         <th>Invoice</th>
                                         <th>Username</th>
                                         <th>Tanggal</th>
+                                        <th>Status</th>
                                         <th>Total</th>
                                         <th>Action</th>
                                     </tr>
@@ -44,11 +48,20 @@
                                             <td><?= $a->kode_penjualan; ?></td>
                                             <td><?= $a->username; ?></td>
                                             <td><?= $a->tanggal; ?></td>
+                                            <td><?= $a->status; ?></td>
                                             <td><?= $a->total; ?></td>
                                             <td class="text-center">
-                                                <a href="javascript:;" class="text-right" data-id="<?= $a->kode_penjualan; ?>" id="tomboltampil"><i class="fas fa-eye"></i></a>
-                                                <a href="javascript:;" class="text-right" data-id="<?= $a->kode_penjualan; ?>" id="tomboledit"><i class="fas fa-check pl-3"></i></a>
-                                                <a href="" class="text-right"><i class="fas fa-times pl-3"></i></a>
+                                                <?php if ($a->status == 'pending') {
+                                                ?>
+                                                    <a href="<?= base_url('admin/transaksi/proses/') . $a->kode_penjualan ?>" class="text-right mr-3" data-id="<?= $a->kode_penjualan; ?>" id="tomboledit">Proses</a>
+                                                    <a href="javascript:;" class="text-right" data-id="<?= $a->kode_penjualan; ?>" id="tomboltampil"><i class="fas fa-eye"></i></a>
+                                                    <a href="" class="text-right"><i class="fas fa-times pl-3"></i></a>
+                                                <?php } else {
+                                                ?>
+                                                    <a href="<?= base_url('admin/transaksi/selesai/') . $a->kode_penjualan ?>" class="text-right mr-3" data-id="<?= $a->kode_penjualan; ?>" id="tomboledit">Selesai</a>
+                                                    <a href="javascript:;" class="text-right" data-id="<?= $a->kode_penjualan; ?>" id="tomboltampil"><i class="fas fa-eye"></i></a>
+                                                    <a href="" class="text-right"><i class="fas fa-times pl-3"></i></a>
+                                                <?php } ?>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -59,6 +72,7 @@
                                         <th>Invoice</th>
                                         <th>Username</th>
                                         <th>Tanggal</th>
+                                        <th>Status</th>
                                         <th>Total</th>
                                         <th>Action</th>
                                     </tr>

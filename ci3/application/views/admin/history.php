@@ -34,7 +34,7 @@
                                         <th>Username</th>
                                         <th>Tanggal</th>
                                         <th>Total</th>
-                                        <th>Action</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody id="mydata">
@@ -45,11 +45,8 @@
                                             <td><?= $a->username; ?></td>
                                             <td><?= $a->tanggal; ?></td>
                                             <td><?= $a->total; ?></td>
-                                            <td class="text-center">
-                                                <a href="javascript:;" class="text-right" data-id="<?= $a->kode_penjualan; ?>" id="tomboltampil"><i class="fas fa-eye"></i></a>
-                                                <a href="javascript:;" class="text-right" data-id="<?= $a->kode_penjualan; ?>" id="tomboledit"><i class="fas fa-check pl-3"></i></a>
-                                                <a href="" class="text-right"><i class="fas fa-times pl-3"></i></a>
-                                            </td>
+                                            <td><?= $a->status; ?></td>
+
                                         </tr>
                                     <?php } ?>
                                 </tbody>
@@ -60,7 +57,7 @@
                                         <th>Username</th>
                                         <th>Tanggal</th>
                                         <th>Total</th>
-                                        <th>Action</th>
+                                        <th>Status</th>
                                     </tr>
                                 </tfoot>
                             </table>

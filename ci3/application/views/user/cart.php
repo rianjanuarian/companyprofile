@@ -88,7 +88,7 @@
                         </a>
                     </div>
                     <div class="col-xs-6">
-                        <h4 class="text-right">Total : Rp. <strong id="total"><?= $total; ?></strong></h4>
+                        <h4 class="text-right">Total : Rp. <strong id="total"></strong></h4>
                     </div>
                     <div class="col-xs-3">
                         <button type="submit" role="button" class="btn btn-success btn-block">
@@ -120,10 +120,10 @@
                 },
                 success: function(data) {
                     console.log(data);
+                    $('#cart').empty();
+                    $('#cart').append(data);
                 },
             });
-            $('#cart').load("<?php echo base_url(); ?>cart/load_cart");
-
         });
         $('.row').on('click', '#hapus', function() {
             var row = $(this).data("row"); //mengambil row_id dari artibut id

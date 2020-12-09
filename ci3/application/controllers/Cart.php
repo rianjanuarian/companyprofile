@@ -64,7 +64,7 @@ class Cart extends CI_Controller
             'qty' => $qty
         ];
         $this->cart->update($update);
-        echo $this->show_cart();
+        echo json_encode($this->show_cart());
     }
     function hapus_cart()
     { //fungsi untuk menghapus item cart

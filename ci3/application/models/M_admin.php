@@ -49,4 +49,8 @@ class M_admin extends CI_Model
     {
         return $this->db->get_where($tabel, $where)->result();
     }
+    function tampiltransaksi($status)
+    {
+        return $this->db->where_in('status', $status)->get('penjualan')->result();
+    }
 }
