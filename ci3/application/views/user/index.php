@@ -31,7 +31,7 @@
                 <p>Channel Youtube Kentang Tech</p>
             </div>
             <div>
-                <a href="<?php echo base_url() ?>home/artikel"> <i class="fa fa-chalkboard-teacher fa-3x" aria-hidden="true"></i> </a>
+                <a href="<?php echo base_url() ?>artikel"> <i class="fa fa-chalkboard-teacher fa-3x" aria-hidden="true"></i> </a>
                 <h3>Artikel</h3>
                 <p> Artikel Seputar Teknologi </p>
             </div>

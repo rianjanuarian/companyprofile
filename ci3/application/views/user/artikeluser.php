@@ -25,9 +25,6 @@
     <!------------x----------- Site Title ----------x----------->
 
     <!-- --------------------- Blog Carousel ----------------- -->
-
-
-
     <!-- ----------x---------- Blog Carousel --------x-------- -->
 
     <!-- ---------------------- Site Content -------------------------->
@@ -93,9 +90,9 @@
                             <div class="card-body">
                                 <div class="newsletter pb-3" data-aos="fade-up" data-aos-delay="300">
                                     <div class="form-element col-9">
-                                        <form name="search" action="search.php" method="post">
+                                        <form name="search" action="" method="post">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" name="searchtitle" placeholder="Artikel">
+                                                <input type="text" class="form-control" name="search" placeholder="Artikel">
                                                 <button class="btn btn-success ml-1" type="submit">Cari</button>
                                             </div>
                                     </div>

@@ -10,7 +10,11 @@ class Artikel extends CI_Controller
     }
     public function index()
     {
-        $data['artikel'] = $this->M_admin->getdata('tblposts');
+        if ($this->input->post('search')) {
+            $data['artikel'] = $this->M_admin->search('tblposts', 'PostTitle', $this->input->post('search'));
+        } else {
+            $data['artikel'] = $this->M_admin->getdata('tblposts');
+        }
         $data['kategori'] = $this->M_admin->getdata('tblcategory');
         $data['terbaru'] = $this->M_artikel->latest();
         $this->load->view('user/header');
