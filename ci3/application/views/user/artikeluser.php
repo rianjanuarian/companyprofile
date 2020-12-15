@@ -1,4 +1,15 @@
 <link rel="stylesheet" href="<?= base_url('assets/bizpage/') ?>produk.css">
+<link rel="stylesheet" href="assets/css/all.css">
+
+
+<!-- --------- Owl-Carousel ------------------->
+<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+
+<!-- ------------ AOS Library ------------------------- -->
+<link rel="stylesheet" href="assets/css/aos.css">
+
+
 <style>
     #listkategori:hover {
         background-color: #18d26e;
@@ -40,7 +51,7 @@
 
                                 <div>
 
-                                    <img src="<?= base_url() ?>img/postimages/<?php echo htmlentities($artikels->PostImage); ?>" alt="<?php echo htmlentities($artikels->PostTitle); ?>" class="img-fluid" style="border-radius: 10px;" alt="blog1">
+                                    <img src="<?= base_url() ?>img/postimages/<?php echo htmlentities($artikels->PostImage); ?>" alt="<?php echo htmlentities($artikels->PostTitle); ?>" class="img-fluid" style="border-radius: 10px;" alt="blog1" width="500" length="1000">
                                 </div>
                                 <div class="post-info flex-row">
                                     <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Admin</span>
@@ -140,5 +151,15 @@
     </section>
 
     <!-- -----------x---------- Site Content -------------x------------>
+    <!-- Jquery Library file -->
+    <script src="assets/js/Jquery3.4.1.min.js"></script>
 
+    <!-- --------- Owl-Carousel js ------------------->
+    <script src="assets/js/owl.carousel.min.js"></script>
+
+    <!-- ------------ AOS js Library  ------------------------- -->
+    <script src="assets/js/aos.js"></script>
+
+    <!-- Custom Javascript file -->
+    <script src="assets/js/main.js"></script>
 </main>
