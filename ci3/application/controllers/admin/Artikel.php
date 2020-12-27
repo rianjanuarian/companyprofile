@@ -140,6 +140,12 @@ class Artikel extends CI_Controller
         $this->session->set_flashdata('flash', 'Diupdate');
         redirect(base_url('admin/tblposts'));
     }
+     function getsubkategori()
+    {
+        $id = $this->input->get('id');
+        $data = $this->M_admin->getwhere('tblsubcategory', ['CategoryId' => $id]);
+        echo json_encode($data);
+    }
     function hapus($id)
     {
         $this->M_admin->updatedata('tblposts', ['id' => $id], ['Is_Active' => '0']);

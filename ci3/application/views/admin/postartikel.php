@@ -33,7 +33,7 @@
                                     <select class="form-control" name="category" id="category" required>
                                         <option value="">Select Category </option>
                                         <?php foreach ($kategori as $kategories) { ?>
-                                            <option value="<?= $kategories->id; ?>"><?= $kategories->CategoryName; ?></option>
+                                            <option value="<?= $kategories->CategoryId; ?>"><?= $kategories->CategoryName; ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -95,7 +95,7 @@
                 var id = $(this).val();
                 $("#subcategory").empty();
                 $.ajax({
-                    url: "<?= base_url('admin/Subkategori') ?>/getkategori",
+                    url: "<?= base_url('admin/Artikel') ?>/getsubkategori",
                     dataType: "JSON",
                     data: {
                         id: id

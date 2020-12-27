@@ -92,11 +92,11 @@
     </script>
     <script>
         $(document).ready(function() {
-            $("#category").change(function() {
+ $("#category").change(function() {
                 var id = $(this).val();
                 $("#subcategory").empty();
                 $.ajax({
-                    url: "<?= base_url('admin/Subkategori') ?>/getkategori",
+                    url: "<?= base_url('admin/Artikel') ?>/getsubkategori",
                     dataType: "JSON",
                     data: {
                         id: id

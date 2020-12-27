@@ -13,7 +13,7 @@ class Subkategori extends CI_Controller
     public function index()
     {
         $data1['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
-        $data['kategori'] = $this->M_admin->getdata('tblCategory');
+        $data['kategori'] = $this->M_admin->getdata('tblcategory');
         $data['subkategori'] = $this->M_admin->getdata('tblsubcategory');
         $this->load->view('admin/header');
         $this->load->view('admin/sidebar', $data1);
