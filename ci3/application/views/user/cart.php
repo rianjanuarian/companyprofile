@@ -79,7 +79,6 @@
                         </div>
                     </div>
             </div>
-
             <div class="panel-footer">
                 <div class="row text-center">
                     <div class="col-xs-3">

@@ -94,7 +94,7 @@
                             <option value="">--Pilih Kategori--</option>
                             <?php foreach ($kategori as $kategories) {
                             ?>
-                                <option value="<?= $kategories->id; ?>"><?= $kategories->CategoryName; ?></option>
+                                <option value="<?= $kategories->CategoryId; ?>"><?= $kategories->CategoryName; ?></option>
                             <?php } ?>
                         </select>
                     </div>

@@ -12,7 +12,7 @@
                         <p><b>Category : </b> <a href="category.php?catid=<?php echo htmlentities($artikel[0]->CategoryId) ?>"><?php echo htmlentities($artikel[0]->CategoryName); ?></a> |
                             <b>Sub Category : </b><?php echo htmlentities($artikel[0]->SubCategoryId); ?> <b> Posted on </b><?php echo htmlentities($artikel[0]->PostingDate); ?></p>
                         <hr />
-                        <img class="img-fluid rounded" src="admin/postimages/<?php echo htmlentities($artikel[0]->PostImage); ?>">
+                        <img class="img-fluid rounded" src="<?= base_url('img/postimages/') . htmlentities($artikel[0]->PostImage); ?>">
                         <p class="card-text"><?php
                                                 $pt = $artikel[0]->PostDetails;
                                                 echo (substr($pt, 0)); ?></p>

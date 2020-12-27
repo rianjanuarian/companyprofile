@@ -25,7 +25,6 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">List Artikel</h3>
-                            <button class="btn btn-primary float-right" id="tambah">Tambah Kategori</button>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -47,8 +46,8 @@
                                             <td><?= $artikels->CategoryName; ?></td>
                                             <td><?= $artikels->Subcategory; ?></td>
                                             <td class="text-center">
-                                                <a href="javascript:;" class="text-right" data-id="<?= $artikels->CategoryName; ?>" id="tomboledit"><i class="fas fa-edit pr-3"></i></a>
-                                                <a href="" class="text-right"><i class="fas fa-trash-alt pl-3"></i></a>
+                                                <a href="<?= base_url('admin/Artikel/edit/') . $artikels->id ?>" class="text-right" data-toggle="tooltip" title="edit" id="tomboledit"><i class="fas fa-edit pr-3"></i></a>
+                                                <a href="<?= base_url('admin/Artikel/hapus/') . $artikels->id ?>" class="text-right" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash-alt pl-3"></i></a>
                                             </td>
                                         </tr>
                                     <?php } ?>

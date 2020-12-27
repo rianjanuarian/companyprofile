@@ -33,10 +33,11 @@ class Auth extends CI_Controller
             $dataadmin = $this->M_auth->ceklogin('admin', $data)->result_array();
             $data_session = array(
                 'username' => $dataadmin[0]['username'],
-                'foto' => $dataadmin[0]['foto']
+                'foto' => $dataadmin[0]['foto'],
+                'admin' => true
             );
             $this->session->set_userdata($data_session);
-            redirect(base_url('admin/dashboard'));
+            redirect(base_url('admin/Transaksi'));
         } elseif ($cekuser > 0) {
             $datauser = $this->M_auth->ceklogin('user', $data)->result_array();
             $data_session = array(

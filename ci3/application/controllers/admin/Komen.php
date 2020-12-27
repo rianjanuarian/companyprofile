@@ -6,6 +6,9 @@ class Komen extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_admin');
+        if ($this->session->userdata('admin') != true) {
+            redirect(base_url('Auth'));
+        }
     }
     public function index()
     {

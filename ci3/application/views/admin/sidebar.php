@@ -23,7 +23,7 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-        <li class="nav-item ">
+        <!-- <li class="nav-item ">
           <a href="<?= base_url('admin/Dashboard') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'Dashboard') {
                                                                           echo 'active';
                                                                         } ?>">
@@ -32,7 +32,7 @@
               Dashboard
             </p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="<?= base_url('admin/Transaksi') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'Transaksi') {
                                                                           echo 'active';
@@ -71,7 +71,7 @@
               Kategori
             </p>
           </a>
-        <li class="nav-item">
+          <!-- <li class="nav-item">
           <a href="pages/calendar.html" class="nav-link">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
@@ -79,7 +79,7 @@
               <span class="badge badge-info right">2</span>
             </p>
           </a>
-        </li>
+        </li> -->
 
         <li class="nav-header">Artikel</li>
         <li class="nav-item">
@@ -156,7 +156,7 @@
             </li>
           </ul>
         </li>
-        <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+        <!-- <li class="nav-header">MULTI LEVEL EXAMPLE</li>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="fas fa-circle nav-icon"></i>
@@ -239,7 +239,7 @@
             <i class="nav-icon far fa-circle text-info"></i>
             <p>Informational</p>
           </a>
-        </li>
+        </li> -->
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

@@ -11,7 +11,15 @@ class M_admin extends CI_Model
     }
     function showartikel($tabel, $tabel1, $tabel2, $join, $join1)
     {
-        return $this->db->from($tabel)->join($tabel1, $join)->join($tabel2, $join1)->get()->result();
+        return $this->db->from($tabel)->join($tabel1, $join)->join($tabel2, $join1)->where(['tblposts.Is_Active' => '1'])->get()->result();
+    }
+    function showartikel1($tabel, $tabel1, $tabel2, $join, $join1)
+    {
+        return $this->db->from($tabel)->join($tabel1, $join)->join($tabel2, $join1)->where(['tblposts.Is_Active' => '0'])->get()->result();
+    }
+    function showartikel2($tabel, $tabel1, $tabel2, $join, $join1, $id)
+    {
+        return $this->db->from($tabel)->join($tabel1, $join)->join($tabel2, $join1)->where(['tblposts.id' => $id, 'tblposts.Is_Active' => '1'])->get()->result();
     }
     function getjoinfilter($tabel, $tabel1, $join, $where)
     {

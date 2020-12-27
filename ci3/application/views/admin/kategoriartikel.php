@@ -45,7 +45,7 @@
                                             <td><?= $a->CategoryName; ?></td>
                                             <td><?= $a->Description; ?></td>
                                             <td class="text-center">
-                                                <a href="javascript:;" class="text-right" data-id="<?= $a->id; ?>" id="tomboledit"><i class="fas fa-edit pr-3"></i></a>
+                                                <a href="javascript:;" class="text-right" data-id="<?= $a->CategoryId; ?>" id="tomboledit"><i class="fas fa-edit pr-3"></i></a>
                                                 <a href="" class="text-right"><i class="fas fa-trash-alt pl-3"></i></a>
                                             </td>
                                         </tr>
@@ -129,7 +129,7 @@
                 },
                 success: function(data) {
                     console.log(data);
-                    $('#kode').val(data[0]['id']);
+                    $('#kode').val(data[0]['CategoryId']);
                     $('#nama').val(data[0]['CategoryName']);
                     $('#deskripsi').val(data[0]['Description']);
                 }

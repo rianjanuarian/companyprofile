@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url('admin/Dashboard') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">History</li>
+                        <li class="breadcrumb-item active">Rekap</li>
                     </ol>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Produk</h3>
+                            <h3 class="card-title">Rekap Seluruh Transaksi</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -30,9 +30,9 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Tanggal</th>
                                         <th>Invoice</th>
                                         <th>Username</th>
-                                        <th>Tanggal</th>
                                         <th>Total</th>
                                         <th>Status</th>
                                     </tr>
@@ -41,9 +41,9 @@
                                     <?php foreach ($penjualan as $index => $a) { ?>
                                         <tr>
                                             <td><?= $index + 1; ?></td>
+                                            <td><?= date('d/m/Y', strtotime($a->tanggal)); ?></td>
                                             <td><?= $a->kode_penjualan; ?></td>
                                             <td><?= $a->username; ?></td>
-                                            <td><?= $a->tanggal; ?></td>
                                             <td><?= $a->total; ?></td>
                                             <td><?= $a->status; ?></td>
 

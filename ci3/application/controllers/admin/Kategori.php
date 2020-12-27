@@ -6,13 +6,16 @@ class Kategori extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_admin');
+        if ($this->session->userdata('admin') != true) {
+            redirect(base_url('Auth'));
+        }
     }
     public function index()
     {
         $data1['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
         $data['kategori'] = $this->M_admin->getdata('kategori');
         $this->load->view('admin/header');
-        $this->load->view('admin/sidebar',$data1);
+        $this->load->view('admin/sidebar', $data1);
         $this->load->view('admin/kategori', $data);
         $this->load->view('admin/footer');
     }

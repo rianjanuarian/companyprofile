@@ -17,10 +17,6 @@ class Checkout extends CI_Controller
     {
         $this->load->view('user/chekout');
     }
-    function show()
-    {
-        print_r($this->input->post());
-    }
     function insert()
     {
         $kode = json_decode($this->input->post('result_data'))->order_id;

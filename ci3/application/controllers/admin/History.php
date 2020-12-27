@@ -4,6 +4,9 @@ class History extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        if ($this->session->userdata('admin') != true) {
+            redirect(base_url('Auth'));
+        }
         $this->load->model('M_admin');
     }
     public function index()

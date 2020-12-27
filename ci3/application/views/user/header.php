@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>BizPage Bootstrap Template</title>
+    <title>Kentang Tech</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -67,7 +67,7 @@
                                     </ul>
                                 </li>
                             <?php } else { ?>
-                                <li><a href="./Auth">login</a></li>
+                                <li><a href="<?= base_url('Auth') ?>">login</a></li>
                             <?php } ?>
                         </ul>
                     </nav><!-- .nav-menu -->

@@ -26,7 +26,7 @@
 
     <!------------------------ Site Title ---------------------->
 
-    <section class="site-title p-3" style="margin-top:8% ;">
+    <section class="site-title p-3" style="margin-top:5.7% ;">
         <div class="site-background" data-aos="fade-up" data-aos-delay="100">
             <h3>Kentang Artikel</h3>
             <h1>Berita Seputar Teknologi</h1>
@@ -40,12 +40,12 @@
 
     <!-- ---------------------- Site Content -------------------------->
 
-    <section class="container-float m-5">
-        <div class="site-content">
+    <section class="wrapper m-5">
+        <div class="container-fluid">
             <div class="row">
-                <div class="posts col-8">
+                <div class="posts col-8 col-md-8">
                     <?php foreach ($artikel as $artikels) { ?>
-                        <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="post-content" data-aos="zoom-in" data-aos-delay="100">
 
                             <div class="post-image">
 
@@ -63,7 +63,7 @@
                                 <h2 class="card-title"><?php echo htmlentities($artikels->PostTitle); ?></h2>
                                 <p class="card-text"><?php $pt = $artikels->PostDetails;
                                                         echo (substr($pt, 0, 500)); ?></p>
-                                <a href="news-details2.php?nid=<?php echo htmlentities($artikels->id) ?>" class="btn btn-success"> Selengkapnya &nbsp; <i class="fas fa-arrow-right"></i></a>
+                                <a href="<?= base_url('Artikel/detail/') . htmlentities($artikels->PostUrl) ?>" class="btn btn-success"> Selengkapnya &nbsp; <i class="fas fa-arrow-right"></i></a>
                             </div>
 
                         </div>
@@ -94,7 +94,7 @@
                 </div> -->
 
                 </div>
-                <div class="col-4">
+                <div class="col-4 col-md-4">
                     <aside class="sidebar">
                         <div class="card">
                             <h3 class="card-header">Cari</h3>
@@ -135,8 +135,8 @@
                                     <div class="post-content" data-aos="flip-up" data-aos-delay="200">
                                         <?php foreach ($terbaru as $index) {
                                         ?>
-                                            <div class="post-title">
-                                                - <a href="<?= base_url() . 'Artikel/detail/' . $index->PostUrl ?>"><?php echo htmlentities($index->PostTitle); ?></a>
+                                            <div class="">
+                                                <b> - <a href="<?= base_url() . 'Artikel/detail/' . $index->PostUrl ?>"><?php echo htmlentities($index->PostTitle); ?></a></b>
                                             </div>
                                         <?php } ?>
                                     </div>

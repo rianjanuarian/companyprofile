@@ -17,7 +17,7 @@
         <input type="hidden" name="kabupaten" value="<?= $this->input->post('nama_kabupaten') ?>" id="kabupaten">
         <input type="hidden" name="kodepos" value="<?= $this->input->post('kodepos') ?>" id="kodepos">
         <input type="hidden" name="alamat" value="<?= $this->input->post('alamat') ?>" id="alamat">
-        <input type="text" name="pengiriman" id="pengiriman" value="<?= $this->input->post('pengiriman') ?>">
+        <input type="hidden" name="pengiriman" id="pengiriman" value="<?= $this->input->post('pengiriman') ?>">
     </form>
 
 

@@ -6,6 +6,9 @@ class KategoriArtikel extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_admin');
+        if ($this->session->userdata('admin') != true) {
+            redirect(base_url('Auth'));
+        }
     }
     public function index()
     {
@@ -19,7 +22,7 @@ class KategoriArtikel extends CI_Controller
     function getkategori()
     {
         $id = $this->input->get('id');
-        $data = $this->M_admin->getwhere('tblcategory', ['id' => $id]);
+        $data = $this->M_admin->getwhere('tblcategory', ['CategoryId' => $id]);
         echo json_encode($data);
     }
     function add()
@@ -35,13 +38,13 @@ class KategoriArtikel extends CI_Controller
         $kode = $this->input->post('kode');
         $nama = $this->input->post('nama');
         $deksripsi = $this->input->post('deskripsi');
-        $update = $this->M_admin->updatedata('tblcategory', ['id' => $kode], ['CategoryName' => $nama, 'Description' => $deksripsi, 'Is_Active' => 1]);
+        $update = $this->M_admin->updatedata('tblcategory', ['CategoryId' => $kode], ['CategoryName' => $nama, 'Description' => $deksripsi, 'Is_Active' => 1]);
 
         redirect(base_url('admin/KategoriArtikel'));
     }
     public function delete($id)
     {
-        $this->M_admin->delete('tblCategory', ['id' => $id]);
+        $this->M_admin->delete('tblCategory', ['CategoryId' => $id]);
         redirect(base_url('admin/KategoriArtikel'));
     }
 }
