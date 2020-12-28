@@ -18,33 +18,17 @@
                                         
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Password</label>
+                                                <label>New Password</label>
                                             </div>
                                             <div class="col-md-6">
                                                 <input type="password" class="form-control" id="current_password" value=""  name="current_password">
                                                 <p><?= form_error('current_password', '<small class="text-danger pl-3">', '</small>') ?></p>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>New Password</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="password" class="form-control" id="password1" value="" name="password1">
-                                                <p><?= form_error('password1', '<small class="text-danger pl-3">', '</small>') ?></p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Re type New Password</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="password" class="form-control" id="password2" value="" name="password2">
-                                                <p><?= form_error('password2', '<small class="text-danger pl-3">', '</small>') ?></p>
-                                            </div>
-                                        </div>
+
                                         
                                         <button type="submit">Simpan</button>
+                                        <button type="submit"><a href=".">Kembali</a></button>
                             </div>
                             
                         </div>

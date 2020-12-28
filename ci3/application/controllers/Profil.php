@@ -54,7 +54,7 @@ class Profil extends CI_Controller
 
                 if($this->upload->do_upload('foto')){
                     $old_image = $data['profil']['foto'];
-                    if($old_image != 'default.jpg') {
+                    if($old_image != 'defaultpp.jpg') {
                         unlink(FCPATH . 'assets/img/profil/'. $old_image);
                      }
 
@@ -80,9 +80,10 @@ class Profil extends CI_Controller
         $data['profil'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         
         $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
-        $this->form_validation->set_rules('password1', 'New Password', 'required|trim|min_length[6]|matches[password2]');
-        $this->form_validation->set_rules('password2', 'New Password', 'required|trim|min_length[6]|matches[password1]');
-        
+        //$this->form_validation->set_rules('password1', 'New Password', 'required|trim|min_length[6]|matches[password2]');
+        //$this->form_validation->set_rules('password2', 'New Password', 'required|trim|min_length[6]|matches[password1]');
+        $this->load->model('M_admin');
+        $username = $this->session->userdata['username'];
 
         if($this->form_validation->run() == false){
             $this->load->view('user/header', $data);
@@ -90,29 +91,44 @@ class Profil extends CI_Controller
             $this->load->view('user/footer');
             
         }else{
-            $current_password = $this->input->post('current_password');
-            $lol = array(
-                'password' =>md5($current_password)
-            );
+           /* $current_password = $this->input->post('current_password');
             $new_password = $this->input->post('password1');
-            if(!password_verify($current_password, $data['profil']['password'])){
-                $this->session->set_flashdata('message', '<div class="alert alert-error" role=""alert>Current Password Wrong</div>');
-                redirect('profil/ganti_password');
-            }else{
-                if($current_password == $new_password){
-                    $this->session->set_flashdata('message', '<div class="alert alert-error" role=""alert>New password cannot matches with old password</div>');
-                    redirect('profil/ganti_password');
-                }else{
-                    $password_hash = md5($new_password);
+            if(!password_verify($current_password, $data['user']['password'])){
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role=""alert>Wrong Current Password  </div>');
+            redirect('profil/ganti_password');
+        }else{
+            if($current_password == $new_password){
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role=""alert>Password </div>');
+            redirect('profil/ganti_password');
 
-                    $this->db->where('username', $this->session->userdata('username'));
-                    $this->db->set('password', $password_hash);
+                }else{
+                    
+
+                    $this->db->set('password', $new_password);
+                    $this->db->where('email', $this->session->userdata('username'));
                     $this->db->update('user');
-                    $this->session->set_flashdata('message', '<div class="alert alert-success" role=""alert>Password Telah di Ubah</div>');
-                    redirect('profil');
-                }
-            }
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role=""alert>password sukses</div>');
+            redirect('profil/ganti_password');
         }
+    }
+    */
+    $password = $this->input->post('current_password');
+    $cekcurrent = md5($this->input->post('current_password'));
+    if(password_verify($cekcurrent, $data['profil']['password'])){
+        
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role=""alert>password harus beda</div>');
+    redirect('profil/ganti_password');
+    }else{
+            $new_password = array(
+
+                'password' => md5($password)
+            );
+            //$this->db->update('user', $profil['username'] , $new_password);
+            $this->M_admin->updatedata('user', ['username' => $username], $new_password);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role=""alert>password berhasil diganti</div>');
+    redirect(base_url('profil/edit_profil'));
+        }
+    }
             
     }
     

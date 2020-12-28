@@ -14,10 +14,10 @@
                                 Change Photo
                                 <input type="file" name="foto" />
                             </div>
-                            
+                            <button type="submit"><a href="ganti_password">Ubah Password</a></button>
+                            <?= $this->session->flashdata('message'); ?>
                         </div>
                         
-                    
                     </div>
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
@@ -57,6 +57,8 @@
                                             </div>
                                         </div>
                                         <button type="submit">Simpan</button>
+                                        <button type="submit"><a href=".">Kembali</a></button>
+                                        
                             </div>
                             
                         </div>

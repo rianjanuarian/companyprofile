@@ -65,12 +65,14 @@ class Auth extends CI_Controller
         $email = $this->input->post('email');
         $no = $this->input->post('nomor_hp');
         $password = md5($this->input->post('password1'));
+        $foto = 'defaultpp.jpg';
         $data = [
             'username' => $username,
             'nama' => $nama,
             'email' => $email,
             'nomor_hp' => $no,
-            'password' => $password
+            'password' => $password,
+            'foto'  => $foto
         ];
         $this->M_auth->register('user', $data);
         redirect(base_url('home/'));
