@@ -38,8 +38,40 @@ class Artikel extends CI_Controller
     {
         $data['artikel'] = $this->M_admin->getjoinfilter('tblposts', 'tblcategory', 'tblposts.CategoryId=tblcategory.CategoryId', ['PostUrl' => $id]);
         $data['komen'] = $this->M_admin->getwhere('tblcomments', ['postId' => $data['artikel'][0]->id, 'status' => '1']);
-        $this->load->view('user/header2');
-        $this->load->view('user/detailartikel', $data);
-        $this->load->view('user/footer');
+
+        if ($this->input->post()) {
+            $this->komen();
+        } else {
+            $this->load->view('user/header2');
+            $this->load->view('user/detailartikel', $data);
+            $this->load->view('user/footer');
+        }
+    }
+    private function komen()
+    {
+        $kode = $this->input->post('kode');
+        $url = $this->input->post('url');
+        $nama = $this->input->post('nama');
+        $email = $this->input->post('email');
+        $komen = $this->input->post('komen');
+        $data = [
+            'postId' => $kode,
+            'name' => $nama,
+            'email' => $email,
+            'comment' => $komen,
+            'status' => '0'
+        ];
+        $proses = $this->M_admin->insertdata('tblcomments', $data);
+        if ($proses) {
+            $this->session->set_flashdata('msg', '<div class="alert alert-success" role="alert">
+         Komen Berhasil Dikirim!!!
+        </div>');
+        } else {
+            $this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert">
+         Komen Gagal Dikirim!!!
+        </div>');
+        }
+
+        redirect(base_url('Artikel/detail/') . $url);
     }
 }

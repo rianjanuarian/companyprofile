@@ -11,7 +11,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="<?= base_url('assets/img/profil/') . $admin['foto']; ?>" class="img-circle elevation-2" >
+        <img src="<?= base_url('assets/img/profil/') . $admin['foto']; ?>" class="img-circle elevation-2">
       </div>
       <div class="info">
         <a href="<?= base_url('admin/Profil') ?>" class="d-block"><?php echo $this->session->userdata('username'); ?></a>
@@ -120,7 +120,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?= base_url('admin/Artikel/sampah') ?>" class="nav-link">
                 <i class="fas fa-trash-alt nav-icon"></i>
                 <p>Sampah Artikel</p>
               </a>
@@ -137,7 +137,7 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="<?= base_url('admin/Komen/') ?>" class="nav-link">
+              <a href="<?= base_url('admin/Komen/pengajuan') ?>" class="nav-link">
                 <i class="p-3"></i>
                 <p>Pengajuan Komen</p>
               </a>
@@ -149,9 +149,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?= base_url('admin/Komen/sampah') ?>" class="nav-link">
                 <i class="p-3"></i>
-                <p>Sampah Artikel</p>
+                <p>Sampah Komen</p>
               </a>
             </li>
           </ul>

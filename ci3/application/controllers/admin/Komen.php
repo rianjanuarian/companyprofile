@@ -19,32 +19,93 @@ class Komen extends CI_Controller
         $this->load->view('admin/komen', $data);
         $this->load->view('admin/footer');
     }
-    function getkategori()
+    function pengajuan()
     {
-        $id = $this->input->get('id');
-        $data = $this->M_admin->getwhere('tblcategory', ['id' => $id]);
-        echo json_encode($data);
+        $data1['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['komen'] = $this->M_admin->getjoinfilter('tblcomments', 'tblposts', 'tblcomments.postId=tblposts.id', ['status' => 0]);
+        $this->load->view('admin/header');
+        $this->load->view('admin/sidebar', $data1);
+        $this->load->view('admin/komenpengajuan', $data);
+        $this->load->view('admin/footer');
     }
-    function add()
+    function sampah()
     {
-        $nama = $this->input->post('nama');
-        $deksripsi = $this->input->post('deskripsi');
-        $data = ['CategoryName' => $nama, 'Description' => $deksripsi, 'Is_Active' => 1];
-        $proses = $this->M_admin->insertdata('tblcategory', $data);
-        redirect(base_url('admin/KategoriArtikel'));
+        $data1['admin'] = $this->db->get_where('admin', ['username' => $this->session->userdata('username')])->row_array();
+        $data['komen'] = $this->M_admin->getjoinfilter('tblcomments', 'tblposts', 'tblcomments.postId=tblposts.id', ['status' => 2]);
+        $this->load->view('admin/header');
+        $this->load->view('admin/sidebar', $data1);
+        $this->load->view('admin/komensampah', $data);
+        $this->load->view('admin/footer');
     }
-    function update()
+    function setuju($id)
     {
-        $kode = $this->input->post('kode');
-        $nama = $this->input->post('nama');
-        $deksripsi = $this->input->post('deskripsi');
-        $update = $this->M_admin->updatedata('tblcategory', ['id' => $kode], ['CategoryName' => $nama, 'Description' => $deksripsi, 'Is_Active' => 1]);
-
-        redirect(base_url('admin/KategoriArtikel'));
+        $proses = $this->M_admin->updatedata('tblcomments', ['no' => $id], ['status' => '1']);
+        if ($proses) {
+            $this->session->set_flashdata(
+                'msg',
+                ' <div class="alert alert-success" role="alert">
+                Berhasil Menyetujui Komen
+            </div>'
+            );
+        } else {
+            $this->session->set_flashdata(
+                'msg',
+                ' <div class="alert alert-danger" role="alert">
+                Gagal Menyetujui Komen
+            </div>'
+            );
+        }
+        redirect(base_url('admin/Komen/pengajuan'));
+    }
+    function hapus($id)
+    {
+        $proses = $this->M_admin->updatedata('tblcomments', ['no' => $id], ['status' => '2']);
+        $this->session->set_flashdata(
+            'msg',
+            ' <div class="alert alert-success" role="alert">
+                Berhasil Menghapus Komen
+            </div>'
+        );
+        redirect(base_url('admin/Komen'));
+    }
+    function restore($id)
+    {
+        $proses = $this->M_admin->updatedata('tblcomments', ['no' => $id], ['status' => '1']);
+        if ($proses) {
+            $this->session->set_flashdata(
+                'msg',
+                ' <div class="alert alert-success" role="alert">
+                Berhasil Mengembalikan Komen
+            </div>'
+            );
+        } else {
+            $this->session->set_flashdata(
+                'msg',
+                ' <div class="alert alert-danger" role="alert">
+                Gagal Menghapus
+            </div>'
+            );
+        }
+        redirect(base_url('admin/Komen/sampah'));
     }
     public function delete($id)
     {
-        $this->M_admin->delete('tblCategory', ['id' => $id]);
-        redirect(base_url('admin/KategoriArtikel'));
+        $proses = $this->M_admin->delete('tblcomments', ['no' => $id]);
+        if ($proses) {
+            $this->session->set_flashdata(
+                'msg',
+                ' <div class="alert alert-success" role="alert">
+                Berhasil Menghapus Komen Secara Permanen
+            </div>'
+            );
+        } else {
+            $this->session->set_flashdata(
+                'msg',
+                ' <div class="alert alert-danger" role="alert">
+                Gagal Menghapus Komen
+            </div>'
+            );
+        }
+        redirect(base_url('admin/Komen/sampah'));
     }
 }

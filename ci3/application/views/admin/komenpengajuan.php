@@ -3,7 +3,6 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
-            <?= $this->session->flashdata('msg'); ?>
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>List Komen</h1>
@@ -51,7 +50,8 @@
                                             <td><?= $komens->PostTitle; ?></td>
                                             <td><?= $komens->postingDate; ?></td>
                                             <td class="text-center">
-                                                <a href="<?= base_url('admin/Komen/hapus/') . $komens->no ?>" class="text-right"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="<?= base_url('admin/Komen/setuju/') . $komens->no ?>" class="text-right pr-3"><i class="fas fa-check"></i></a>
+                                                <a href="<?= base_url('admin/Komen/delete/') . $komens->no ?>" class="text-right pl-3"><i class="fas fa-times"></i></a>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -64,7 +64,6 @@
                                         <th>Comment</th>
                                         <th>Post</th>
                                         <th>Comment Date</th>
-
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>
