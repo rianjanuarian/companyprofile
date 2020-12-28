@@ -61,7 +61,7 @@
                                     </div>
                                 </div>
                                 <button type="submit" name="submit" class="btn btn-success waves-effect waves-light">Edit</button>
-                                <button type="button" class="btn btn-danger waves-effect waves-light">Discard</button>
+                                <a href=".."><button type="button" class="btn btn-danger waves-effect waves-light">Discard</button></a>
                             </form>
                         </div>
                     </div> <!-- end p-20 -->
