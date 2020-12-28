@@ -104,6 +104,7 @@
                         </div>
                         <div class="form-group col-6">
                             <select name="kategori" class="form-control" id="kategori">
+                                <option value="">--Pilih Kategori--</option>
                                 <?php foreach ($kategori as $b) { ?>
                                     <option value="<?= $b->kode_kategori; ?>"><?= $b->nama_kategori; ?></option>
                                 <?php } ?>
@@ -117,6 +118,14 @@
                         </div>
                         <div class="form-group col-12">
                             <input type="number" name="harga" id="harga" class="form-control" placeholder="Masukkan Harga Produk">
+                        </div>
+                        <div class="form-group col-12">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Masukkan Berat Produk" id="berat" name="berat">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Gram</span>
+                                </div>
+                            </div>
                         </div>
                         <div class="img mx-auto p-2" id="gambar">
 
@@ -152,6 +161,7 @@
             $('#nama').val('');
             $('#kategori').val('');
             $('#merk').val('');
+            $('#berat').val('');
             $('#stok').val('');
             $('#harga').val('');
             $('#submit').text('Tambah Produk');
@@ -179,8 +189,9 @@
                     $('#kategori').val(data[0]['kode_kategori']);
                     $('#merk').val(data[0]['merk']);
                     $('#stok').val(data[0]['stok']);
-                    $('#gambar').append($('<img src="<?= base_url('img/') ?>' + data[0]['foto_produk'] + '" class="img-fluid" style="max-width:10rem;">'))
+                    $('#gambar').append($('<img src="<?= base_url('img/') ?>' + data[0]['foto'] + '" class="img-fluid" style="max-width:10rem;">'))
                     $('#harga').val(data[0]['harga']);
+                    $('#berat').val(data[0]['berat']);
                 }
             });
         })

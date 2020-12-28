@@ -20,21 +20,26 @@ class Cart extends CI_Controller
     {
         $output = '';
         $no = 0;
+        $berat = 0;
         foreach ($this->cart->contents() as $a) {
             $no += $a['subtotal'];
+            $berat += $a['options']['berat'] * $a['qty'];
             $output .= '<div class="row">
-        <div class="col-xs-2"><img class="img-responsive" src="http://placehold.it/100x70">
+        <div class="col-xs-2"><img class="img-responsive" src="' . base_url('img/') . $a['options']['gambar'] . '" style="width:150px;height:100px;">
         </div>
         <div class="col-xs-4">
             <h4 class="product-name"><strong>' . $a['name'] . '</strong></h4>
         </div>
         <div class="col-xs-6">
-            <div class="col-xs-4 text-right">
+            <div class="col-xs-3 text-right">
                 <h6><strong>' . $a['price'] . '</strong></h6>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-3">
                 <input type="text" class="form-control input-sm" id="qty" data-subtotal="' . $a['subtotal'] . '" data-row="' . $a['rowid'] . '" value="' . $a['qty'] . '">
             </div>
+            <div class="col-xs-2 text-center">
+            <h6><strong>' . $a['options']['berat'] * $a['qty'] / 1000 . ' Kg</strong></h6>
+        </div>
             <div class="col-xs-2 text-right subtotal">
                 <h6><strong>' . $a['subtotal'] . '</strong></h6>
             </div>
@@ -47,7 +52,8 @@ class Cart extends CI_Controller
     </div>
     <hr>';
         }
-        $output .= '<div class ="row">
+        $output .= '<input type="hidden" id="berat" value="' . $berat . '">
+        <div class ="row">
         <div class="col-6"><h4>Total :</h4></div><div class="float-right col-6"><h4><strong class="float-right">' . $no . '</strong></h4></div></div>';
         return $output;
     }
@@ -140,7 +146,8 @@ class Cart extends CI_Controller
     {
         $origin = $this->input->post('origin');
         $kurir = $this->input->post('kurir');
-        $data = $this->rajaongkircost($origin, '1000', $kurir);
+        $berat = $this->input->post('berat');
+        $data = $this->rajaongkircost($origin, $berat, $kurir);
         echo $data;
     }
 }

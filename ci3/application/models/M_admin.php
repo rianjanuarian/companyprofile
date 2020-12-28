@@ -61,4 +61,8 @@ class M_admin extends CI_Model
     {
         return $this->db->where_in('status', $status)->get('penjualan')->result();
     }
+    function searchartikel($tabel, $column, $keyword)
+    {
+        return $this->db->like($column, $keyword)->where(['Is_Active' => '1'])->get($tabel)->result();
+    }
 }

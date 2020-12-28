@@ -19,11 +19,14 @@ class Produk extends CI_Controller
         $kode = $this->input->post('produk');
         $nama = $this->input->post('nama');
         $harga = $this->input->post('harga');
+        $berat = $this->input->post('berat');
+        $gambar = $this->input->post('gambar');
         $data = array(
             'id'      => $kode,
             'qty'     => 1,
             'price'   => $harga,
             'name'    => $nama,
+            'options' => array('berat' => $berat, 'gambar' => $gambar)
         );
         $this->cart->insert($data);
         $show = $this->cart->contents();

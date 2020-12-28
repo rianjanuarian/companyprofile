@@ -11,9 +11,9 @@ class Artikel extends CI_Controller
     public function index()
     {
         if ($this->input->post('search')) {
-            $data['artikel'] = $this->M_admin->search('tblposts', 'PostTitle', $this->input->post('search'));
+            $data['artikel'] = $this->M_admin->searchartikel('tblposts', 'PostTitle', $this->input->post('search'));
         } else {
-            $data['artikel'] = $this->M_admin->getdata('tblposts');
+            $data['artikel'] = $this->M_admin->getwhere('tblposts', ['Is_Active' => '1']);
         }
         $data['kategori'] = $this->M_admin->getdata('tblcategory');
         $data['terbaru'] = $this->M_artikel->latest();

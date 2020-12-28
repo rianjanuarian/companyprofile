@@ -28,7 +28,7 @@
                          <div class="col">
                              <div class="row">
                                  <?php if ($this->session->userdata('username') != '') { ?>
-                                     <button class="form-control col-12 col-md-12" data-produk="<?= $a->kode_produk ?>" data-nama="<?= $a->nama_produk ?>" data-harga="<?= $a->harga ?>" id="addcart">Add to cart</button>
+                                     <button class="form-control col-12 col-md-12" data-produk="<?= $a->kode_produk ?>" data-nama="<?= $a->nama_produk ?>" data-harga="<?= $a->harga ?>" data-berat="<?= $a->berat ?>" data-gambar="<?= $a->foto ?>" id="addcart">Add to cart</button>
                                  <?php } else { ?>
                                      <button class="form-control col-12 col-md-12" id="tombolcart">Add to cart</button>
                                  <?php } ?>
@@ -48,6 +48,8 @@
              var produk = $(this).data('produk');
              var nama = $(this).data('nama');
              var harga = $(this).data('harga');
+             var berat = $(this).data('berat');
+             var gambar = $(this).data('gambar');
              console.log(produk);
              $.ajax({
                  type: "POST",
@@ -57,6 +59,8 @@
                      produk: produk,
                      nama: nama,
                      harga: harga,
+                     berat: berat,
+                     gambar: gambar
                  },
                  success: function(data) {
                      console.log(data);
@@ -94,7 +98,7 @@
                              '</p>' +
                              '<div class="col">' +
                              '<div class="row">' +
-                             '<button class="form-control col-12 col-md-12" data-produk="' + data[i]['kode_produk'] + '" data-nama="' + data[i]['nama_produk'] + '" data-harga="' + data[i]['harga'] + '" id="addcart">Add to cart</button>' +
+                             '<button class="form-control col-12 col-md-12" data-produk="' + data[i]['kode_produk'] + '" data-nama="' + data[i]['nama_produk'] + '" data-harga="' + data[i]['harga'] + '" data-berat="' + data[i]['berat'] + '" data-gambar="' + data[i]['foto'] + '" id="addcart">Add to cart</button>' +
                              '</div>' +
                              '</div>' +
                              '</div>' +

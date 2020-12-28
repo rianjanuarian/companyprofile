@@ -13,11 +13,14 @@
         <h4 class="product-name"><strong>Nama</strong></h4>
     </div>
     <div class="col-xs-6">
-        <div class="col-xs-4 text-center">
+        <div class="col-xs-3 text-center">
             <h4><strong>Harga</strong></h4>
         </div>
-        <div class="col-xs-4 text-center">
+        <div class="col-xs-3 text-center">
             <h4><strong>Qty</strong></h4>
+        </div>
+        <div class="col-xs-2 text-center">
+            <h4><strong>Berat</strong></h4>
         </div>
         <div class="col-xs-2 text-right">
             <h4><strong>Subtotal</strong></h4>
@@ -162,6 +165,7 @@
         $("#kurir").change(function() {
             var kurir = $(this).val()
             var id_origin = $("#kabupaten").val();
+            var berat = $("#berat").val();
             var provinsi = $("#provinsi  option:selected").text();
             var kabupaten = $("#kabupaten option:selected").text();
             $('#servis').empty();
@@ -170,7 +174,8 @@
                 type: 'POST',
                 data: {
                     'origin': id_origin,
-                    'kurir': kurir
+                    'kurir': kurir,
+                    'berat': berat
                 },
                 dataType: 'json',
                 success: function(data) {

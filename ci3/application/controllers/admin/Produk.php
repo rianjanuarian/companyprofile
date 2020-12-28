@@ -32,6 +32,7 @@ class Produk extends CI_Controller
         $nama = $this->input->post('nama');
         $kategori = $this->input->post('kategori');
         $merk = $this->input->post('merk');
+        $berat = $this->input->post('berat');
         $stok = $this->input->post('stok');
         $harga = $this->input->post('harga');
         $config = [
@@ -55,6 +56,7 @@ class Produk extends CI_Controller
                 'merk' => $merk,
                 'stok' => $stok,
                 'harga' => $harga,
+                'berat' => $berat,
                 'foto' => $file['file_name']
             ];
             $this->M_admin->insertdata('produk', $data);
@@ -68,6 +70,7 @@ class Produk extends CI_Controller
         $nama = $this->input->post('nama');
         $kategori = $this->input->post('kategori');
         $merk = $this->input->post('merk');
+        $berat = $this->input->post('berat');
         $stok = $this->input->post('stok');
         $harga = $this->input->post('harga');
         if ($_FILES['foto']['name'] != '') {
@@ -91,6 +94,7 @@ class Produk extends CI_Controller
                     'merk' => $merk,
                     'stok' => $stok,
                     'harga' => $harga,
+                    'berat' => $berat,
                     'foto' => $file['file_name']
                 ];
                 $produk = $this->M_admin->getwhere('produk', ['kode_produk' => $kode]);
@@ -106,6 +110,7 @@ class Produk extends CI_Controller
                 'kode_kategori' => $kategori,
                 'merk' => $merk,
                 'stok' => $stok,
+                'berat' => $berat,
                 'harga' => $harga
             ];
             $where = ['kode_produk' => $kode];
