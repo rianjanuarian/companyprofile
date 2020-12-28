@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/user/index.css">
     <title> Kentang Tech Media</title>
+    <link rel="shortcut icon" href="assets/user/images/logonew.png">
 </head>
 
 <body>

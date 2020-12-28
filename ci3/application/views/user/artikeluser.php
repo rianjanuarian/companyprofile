@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="assets/css/aos.css">
 <link rel="stylesheet" href="./css/all.css">
 
-
+<link rel="shortcut icon" href="assets/user/images/logonew.png">
 
 
 <style>
