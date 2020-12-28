@@ -14,9 +14,9 @@
     <header class="showcase">
 
         <div class="content">
-            <img src="<?php echo base_url() ?>assets/user/images/logo.jpeg" class="logo" alt="Kentang Tech Media">
+            <img src="<?php echo base_url() ?>assets/user/images/logonew.png" class="logo" alt="Kentang Tech Media">
             <div class="title">
-                Kentang Tech
+                KENTANG TECH
             </div>
             <div class="text">
                 Memahami Teknologi Serenyah Makan Kentang Goreng
@@ -47,11 +47,11 @@
         <div class="container">
             <div class="grid-2">
                 <div class="center">
-                    <img src="<?php echo base_url() ?>assets/user/images/logo.jpeg" height="200px" width="200px">
+                    <img src="<?php echo base_url() ?>assets/user/images/logonew.png" height="200px" width="200px">
                 </div>
                 <div>
-                    <h3>About </h3>
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, consequuntur. Rem in fuga consequuntur iure qui quas reiciendis, temporibus deserunt neque dolore optio pariatur, eveniet obcaecati ipsam sapiente minus nihil quo eligendi itaque facilis? Dolores eum id quod odio numquam.</p>
+                    <h3>Tentang Kami </h3>
+                    <p> Kentang Tech adalah Channel Youtube yang berusaha memberikan informasi tentang teknologi utamanya yang berhubungan dengan PC, Laptop, Gear Gaming dan sebagainya, yang disampaikan dengan bahasa yang renyah dan mudah dipahami audiensnya</p>
                 </div>
             </div>
         </div>
