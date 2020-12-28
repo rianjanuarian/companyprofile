@@ -42,6 +42,7 @@ class Checkout extends CI_Controller
             ];
             $this->M_admin->insertdata('detail_penjualan', $detail_penjualan);
         }
+        $this->cart->destroy();
         redirect(base_url('History'));
     }
 }
