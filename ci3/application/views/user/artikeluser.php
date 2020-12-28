@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?= base_url('assets/bizpage/') ?>produk.css">
+<link rel="stylesheet" href="<?= base_url('assets/bizpage/') ?>produk2.css">
 <link rel="stylesheet" href="assets/css/all.css">
 
 
