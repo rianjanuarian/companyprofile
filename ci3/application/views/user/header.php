@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Kentang Tech</title>
+    <title>Kentang Tech Media</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="<?= base_url('assets/bizpage/') ?>assets/img/favicon.png" rel="icon">
+    <link href="<?= base_url('assets/') ?>kentang.png" rel="icon">
     <link href="<?= base_url('assets/bizpage/') ?>assets/img/apple-touch-icon.png" rel="apple-touch-icon">
     <!-- Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
