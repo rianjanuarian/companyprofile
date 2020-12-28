@@ -8,7 +8,7 @@
 
 <!-- ------------ AOS Library ------------------------- -->
 <link rel="stylesheet" href="assets/css/aos.css">
-   <link rel="stylesheet" href="./css/all.css">
+<link rel="stylesheet" href="./css/all.css">
 
 
 
@@ -129,7 +129,7 @@
                                     <h2>Kategori</h2>
                                     <?php foreach ($kategori as $index) { ?>
                                         <div class="list col-9">
-                                            <h5><a href="category2.php?catid=<?php echo htmlentities($index->CategoryId) ?>" class="form-control" id="listkategori"><?php echo htmlentities($index->CategoryName); ?></a></h5>
+                                            <h5><a href="<?= base_url('Artikel/kategori/') . htmlentities($index->CategoryId) ?>" class="form-control" id="listkategori"><?php echo htmlentities($index->CategoryName); ?></a></h5>
                                         </div>
                                     <?php } ?>
                                 </div>
@@ -165,6 +165,6 @@
 
     <!-- Custom Javascript file -->
     <script src="assets/js/main.js"></script>
-    
-    
+
+
 </main>
