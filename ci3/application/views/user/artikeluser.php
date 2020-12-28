@@ -12,8 +12,6 @@
 
 
 
-    <!-- Custom Style   -->
-    <link rel="stylesheet" href="assets/css/Style.css">
 
 <style>
     #listkategori:hover {
