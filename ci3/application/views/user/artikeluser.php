@@ -8,7 +8,12 @@
 
 <!-- ------------ AOS Library ------------------------- -->
 <link rel="stylesheet" href="assets/css/aos.css">
+   <link rel="stylesheet" href="./css/all.css">
 
+
+
+    <!-- Custom Style   -->
+    <link rel="stylesheet" href="assets/css/Style.css">
 
 <style>
     #listkategori:hover {
@@ -162,4 +167,6 @@
 
     <!-- Custom Javascript file -->
     <script src="assets/js/main.js"></script>
+    
+    
 </main>
