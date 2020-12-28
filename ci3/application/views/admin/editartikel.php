@@ -23,10 +23,10 @@
                 <div class="col-md-12 col-md-offset-1">
                     <div class="p-3">
                         <div class="">
-                            <form name="addpost" action="<?= base_url('admin/artikel/update') ?>" method="post" enctype="multipart/form-data">
+                            <form name="addpost" action="<?= base_url('admin/Artikel/update') ?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group m-b-20">
                                     <label for="exampleInputEmail1">Post Title</label>
-                                    <input type="hidden" value="<?= $artikel[0]->id ?>" required>
+                                    <input type="hidden" value="<?= $artikel[0]->id ?>" name="kode" required>
                                     <input type="text" class="form-control" id="title" name="title" placeholder="Enter title" value="<?= $artikel[0]->PostTitle ?>" required>
                                 </div>
                                 <div class="form-group m-b-20">
@@ -92,7 +92,7 @@
     </script>
     <script>
         $(document).ready(function() {
- $("#category").change(function() {
+            $("#category").change(function() {
                 var id = $(this).val();
                 $("#subcategory").empty();
                 $.ajax({

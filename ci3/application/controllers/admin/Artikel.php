@@ -138,9 +138,9 @@ class Artikel extends CI_Controller
             $this->M_admin->updatedata('tblposts', $where, $data);
         }
         $this->session->set_flashdata('flash', 'Diupdate');
-        redirect(base_url('admin/tblposts'));
+        redirect(base_url('admin/artikel'));
     }
-     function getsubkategori()
+    function getsubkategori()
     {
         $id = $this->input->get('id');
         $data = $this->M_admin->getwhere('tblsubcategory', ['CategoryId' => $id]);
