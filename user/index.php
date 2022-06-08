@@ -12,7 +12,7 @@
     <header class="showcase">
         
         <div class= "content">
-            <img src="images/logo.jpeg" class="logo" alt="Kentang Tech Media">
+            <img src="images/alfatech.jpeg" class="logo" alt="Kentang Tech Media">
             <div class="title">
                 Alfa Tech
 </div>
@@ -36,11 +36,11 @@
     <div class="container">
         <div class="grid-2">
             <div class="center">
-           <img src="images/logo.jpeg" height= "200px" width="200px">
+           <img src="images/alfatech.jpeg" height= "200px" width="200px">
             </div>
             <div>
-                <h3>About </h3>
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, consequuntur. Rem in fuga consequuntur iure qui quas reiciendis, temporibus deserunt neque dolore optio pariatur, eveniet obcaecati ipsam sapiente minus nihil quo eligendi itaque facilis? Dolores eum id quod odio numquam.</p>
+                <h3>Tentang Kami </h3>
+                <p> Dengan semakin berkembang dan tingginya kebutuhan masyarakat terhadap pelayanan yang berhubungan dengan kebutuhan perangkat keras komputer (hardware) dan perangkat lunak komputer (software), kami berinisiatif untuk membuka Toko dengan konsep kelas menengah untuk memberikan pengalaman berbelanja terbaik kepada para pelanggan. </p>
             </div>
         </div>
     </div>
