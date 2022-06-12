@@ -23,15 +23,20 @@
 </div>
 </header>
 <section class="services">
-    <div class="container grid-1 center">
-        
+    <div class="container grid-2 center">
         <div>
-        <a href="login.php"> <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i></a>
+        <a href="katalog.php"> <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i></a>
+        <h3>Katalog</h3>
+        <p> Katalog Komponen PC </p>
+        </div>
+        <div>
+        <a href="https://www.tokopedia.com/alfatech223"> <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i></a>
         <h3>Toko</h3>
-        <p> Komponen PC Terlengkap dengan Harga Terjangkau </p>
+        <p> Kunjungi Tokopedia Kami </p>
         </div>
     </div>
 </section>
+
 
 
 <section class="about bg-light">
